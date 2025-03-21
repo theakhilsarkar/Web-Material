@@ -1,0 +1,13 @@
+Web Development - Placement Task Day 2
+
+- Create a simple todo-task manager website.
+- User can add task and priority(Urgent,medium,low by radio button).
+- User can remove and update task detail after adding task.
+- Store tasks in local storage and make attractive and responsive ui.
+- Also Perform validation on invalid input, show error dialog box.
+- Perform this task by HTML,CSS,JS,Bootstrap,JQuery only.
+
+Guidelines:-
+* Complete this task within 3 hours, by setting a timer in your mobile.
+* Learn before attempting, if any part of the question needs to be learned or understood.
+* Don't cheat yourself.

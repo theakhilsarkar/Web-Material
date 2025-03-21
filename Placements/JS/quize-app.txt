@@ -1,0 +1,14 @@
+Web Development - Placement Task Day 1
+
+* Create a simple Quiz App with 10 GK questions.
+* Every Question should be displayed for 60 seconds.
+* After 60 seconds question should be changed.
+* Show the result at the end of all questions out of total.
+* Create a Restart button feature to restart the quiz.
+* Question order should be random after every restart.
+* Perform this task by using only JavaScript, no react and node.
+
+Guidelines:-
+* Complete this task within 3 hours, by setting a timer in your mobile.
+* Learn before attempting, if any part of the question needs to be learned or understood.
+* Don't cheat yourself.
