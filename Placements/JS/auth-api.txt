@@ -1,0 +1,22 @@
+Web Development - Placement Task Day 3
+
+Users API: https://dummyjson.com/users
+Auth API: https://dummyjson.com/auth/login
+
+- Create a SignIn Website
+- Allow only Users API's user to log in and authenticate users using Auth API.
+- Auth API supports POST type and takes references from this doc: https://dummyjson.com/docs/auth
+- After successfully logging in, navigate the user to the homepage where he should show their basic detail in Listview and after clicking open another detail page.
+- Set a logout button which navigates the user to the login page again.
+- Also store all user details(all) that are logged in successfully in local storage(don't user any external storage).
+- Make attractive UI.
+
+Practical Explanation :-
+- You have to create only signin page and home page.
+- signin page authenticate user by Auth API, auth api allow only user api's users.
+- Store users details after successfully login and navigate to home page and show current and previous all logged in users.
+
+Guidelines:-
+* Complete this task within 3 hours, by setting a timer in your mobile.
+* Learn before attempting, if any part of the question needs to be learned or understood.
+* Don't cheat yourself.
