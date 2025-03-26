@@ -1,0 +1,14 @@
+*Web Development - Placement Task Day 4*
+
+- Build a Weather App Using an API(Find API by yourself) by React JS.
+- Fetch Data from an API & display in dynamic UI.
+- User can enter city name
+- Fetch data of that specific city and display to user.
+- Show defferent UI/apperance for day and night according searched city data.
+- Handle errors (e.g., invalid city names).
+
+Guidelines:-
+* Complete this task within 3 hours, by setting a timer in your mobile.
+* Learn before attempting, if any part of the question needs to be learned or understood.
+* Don't cheat yourself.
+
