@@ -19,6 +19,11 @@
 
 3. **Database:** Connect and store employee data in MongoDB.  
 
-4. **Error Handiling:** Implement proper error handling and input validation.  
+4. **Error Handling:** Implement proper error handling and input validation.  
 
 ⏳ **Time Limit:** 3 Hours 🚀
+
+Guidelines:-
+- Complete this task within 3 hours by setting a timer on your mobile.
+- Learn before attempting, if any part of the question needs to be learned or understood.
+- Don't cheat yourself.
