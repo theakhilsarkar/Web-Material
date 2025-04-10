@@ -2,8 +2,6 @@
 
 # 📘 JavaScript Local Storage & To-Do App Guide
 
----
-
 ## 🔹 What is JSON?
 
 **JSON (JavaScript Object Notation)** is a lightweight data format used to store and transfer data. It's widely used for APIs, local storage, etc.
