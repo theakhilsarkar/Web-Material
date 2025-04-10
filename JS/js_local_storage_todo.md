@@ -1,6 +1,4 @@
-Here's a **complete theory + practical guide** for learning **Local Storage**, **JSON**, and how to make a **CRUD-enabled To-Do App** using HTML, CSS & JavaScript. I've added comments, explanations, and structure for students to easily understand the concepts. ✨🧠
 
----
 
 # 📘 JavaScript Local Storage & To-Do App Guide
 
@@ -256,8 +254,3 @@ readTask(); // Load tasks initially
 ```js
 localStorage.clear();
 ```
-
----
-
-If you'd like a **downloadable version** of this guide as PDF or printable doc, let me know! 💬  
-Happy Coding! 😄💻✨
