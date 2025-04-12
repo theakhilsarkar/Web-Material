@@ -1,5 +1,5 @@
 
-## 🚀 JavaScript Project – **Day 2**  
+# 🚀 JavaScript Project – **Day 2**  
 ### 🔔 **Toast Notification App**
 
 🎯 **Objective:**  
