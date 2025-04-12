@@ -49,5 +49,3 @@ After completing this task, you will be able to:
 ✅ Create animations using CSS transitions  
 ✅ Build modular, reusable JS functions
 
-
-Want the Day 3 idea or next project too? 🎯 Let me know!
