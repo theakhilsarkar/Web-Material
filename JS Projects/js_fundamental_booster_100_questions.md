@@ -1,4 +1,29 @@
 
+# 📚 Instruction Notes for Fundamental Booster 🚀
+
+1️⃣ **Perform every question practically** – Write the JavaScript program and run it. Take a clear **screenshot of the output** and upload it in the given document. 🖥️📸
+
+2️⃣ **Make a copy of this Google Doc:**
+[Fundamental Booster Task Document](https://docs.google.com/document/d/1QDATXxTw-F_Z6VcFzt7mYfiS7axp5dCEbBESnCf6Nlc/edit?usp=sharing)
+Perform **each task inside this copied document**. ✍️📄
+
+3️⃣ **Name your file as:**
+`Akash Kesari 1425 FSD`
+(Use this exact format for your submission file name.) 📝
+
+4️⃣ **Submit your final file in PDF format** by **23/05/2025** ⏳📅
+
+5️⃣ **Do not copy answers from others or online sources** —
+Cheating only cheats yourself! Be honest and learn deeply. 💡❌📋
+
+6️⃣ **First page of your document should have your details:**
+
+* Full Name
+* GR ID / Roll Number
+* Course Name
+* Subject Name
+  (Make this like a cover page to introduce yourself.) 👤📝
+
 
 # 🚀 Fundamental Booster
 
