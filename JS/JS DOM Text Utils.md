@@ -40,12 +40,14 @@
 
 ---
 
-### 📦 File Structure
+## 📁 Files Included
 
 ```
-📁 TextUtils/
-├── index.html
-└── script.js
+/Text-Utils
+│
+├── index.html     ➤ UI layout using Bootstrap
+├── script.js      ➤ JavaScript logic and DOM manipulation
+└── README.md      ➤ Project explanation (with output video)
 ```
 
 ---
