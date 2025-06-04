@@ -11,6 +11,18 @@ This simple project demonstrates how to use DOM manipulation in JavaScript to:
 
 ---
 
+## 📁 Files Included
+
+```
+/quiz-app
+│
+├── index.html     ➤ UI layout using Bootstrap
+├── script.js      ➤ JavaScript logic and DOM manipulation
+└── README.md      ➤ Project explanation (with output video)
+```
+
+
+
 ## ⚙️ Technologies Used
 
 * HTML5
