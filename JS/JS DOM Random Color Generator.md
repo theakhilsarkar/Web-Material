@@ -14,7 +14,7 @@ This simple project demonstrates how to use DOM manipulation in JavaScript to:
 ## 📁 Files Included
 
 ```
-/quiz-app
+/random-color-generator
 │
 ├── index.html     ➤ UI layout using Bootstrap
 ├── script.js      ➤ JavaScript logic and DOM manipulation
