@@ -164,7 +164,3 @@ p1.display();
 1. Create a `Student` class with constructor & 5 attributes.
 2. Create an `Employee` class with `salary`, `bonus`, and a `getTotalSalary()` method.
 3. Add private fields in `ATM` using `#pin`, `#balance`, and use getter/setter.
-
----
-
-Let me know if you'd like these examples converted into a project file, UI-based app, or MCQ-style revision quiz!
