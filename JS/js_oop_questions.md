@@ -131,3 +131,11 @@ const myCar = VehicleFactory.createVehicle("car", "Toyota", 2023);
 const myBike = VehicleFactory.createVehicle("bike", "Yamaha", 2022);
 ```
 
+| OOP Pillar    | Meaning                                  
+| ------------- | ----------------------------------------
+| Encapsulation | Bind data + methods in one unit         
+| Abstraction   | Hide internal details                    
+| Inheritance   | Child class gets parent class properties
+| Polymorphism  | Same method name, different behavior     
+
+
