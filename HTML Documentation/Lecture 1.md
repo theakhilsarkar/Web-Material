@@ -135,3 +135,9 @@ Inline elements **don’t break lines**, only take up the space they need.
   </body>
 </html>
 ```
+## 💡 Lab Work
+
+🔗 **Read-only Link:**
+[https://docs.google.com/document/d/13y8RlvZH9BH\_CXspofsfxNjqedcgPxHA3KSlVjmj0J4/view](https://docs.google.com/document/d/13y8RlvZH9BH_CXspofsfxNjqedcgPxHA3KSlVjmj0J4/view)
+
+
