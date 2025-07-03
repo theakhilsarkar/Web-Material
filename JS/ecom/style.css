@@ -1,0 +1,50 @@
+.products {
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-box {
+    margin: 10px;
+    width: 300px;
+    background-color: aquamarine;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-box img {
+    height: 200px;
+    width: 200px;
+}
+
+button {
+    background-color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: yellowgreen;
+}
+
+.cart {
+    width: 30%;
+}
+
+.main {
+    display: flex;
+}
+
+.cart-box {
+    width: 100%;
+    display: flex;
+}
+
+.cart-box img {
+    width: 20%;
+}
+
+.cart-box .detail {
+    margin-left: 20px;
+}
