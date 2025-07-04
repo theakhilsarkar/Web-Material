@@ -238,3 +238,5 @@ These fonts are supported across most browsers and systems:
 | Impact          | `<font face="Impact">This is Impact</font>`                   |
 | Lucida Console  | `<font face="Lucida Console">This is Lucida Console</font>`   |
 
+### 📌 **Practical Task**:
+🔗 [HTML Lecture 3 – Practical Task on Anchor & Font Tags](https://docs.google.com/document/d/1h54AbZJu6oan6_u5FjfQXIc44ZJNr7dW-7G5seB5wK0/edit?tab=t.0)
