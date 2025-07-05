@@ -1,72 +1,16 @@
-// setTimeOut - delay, 1
-// setInterval,return - interval, 2
-// clearInterval - id - end setInterval
+// STATIC DATA
+// CONST VS STATIC
 
-// data local
+// 20 products - scalable website
+// amazon.in -
 
-// RAM(random access memory) - Temporary Storage
-// SSD - Permenant Storage Option --> bin
+// computer - local - 512 gb
 
-// const input = document.getElementById("input");
-// const output = document.getElementById("output");
-// const button = document.getElementById("button");
-// const delBtn = document.getElementById("delete");
+// server
 
-// output.textContent = localStorage.getItem("todo"); // to get output from local storage - key
+// google 15gb drive - google server
 
-// button.addEventListener("click", () => {
-//   output.textContent = input.value;
-//   localStorage.setItem("todo", input.value); // to set item in local storage - key - value
-// });
-
-// delBtn.addEventListener("click", () => {
-//   localStorage.removeItem("todo");
-// });
-
-// local storage - 5 MB, text
-//
-
-// backend - cloud, table - sql, doc-col
-
-// CRUD
-
-// create a website and enable change theme feature dark mode and light mode.
-// save last changed mode, and display last mode when user refresh or re-visit.
-// dark - black, light - white
-
-const button = document.getElementById("button");
-const p = document.getElementById("p");
-const div = document.getElementById("theme");
-
-let theme = localStorage.getItem("theme");
-
-p.textContent = theme; // ui + logic
-div.className = theme; // last theme
-
-button.addEventListener("click", () => {
-  if (theme == "dark") {
-    localStorage.setItem("theme", "light"); // string 
-    theme = localStorage.getItem("theme");
-    p.textContent = theme;
-    div.className = theme;
-  } else {
-    localStorage.setItem("theme", "dark");
-    theme = localStorage.getItem("theme");
-    p.textContent = theme;
-    div.className = theme;
-  }
-});
-
-// E-Commerce - data
-
-// 70%
-// products view
-
-// 30%
-// cart list - which product are added in cart
-// at bottom - total,discount,gst
-
-let products = [
+const products = [
   {
     id: 1,
     title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
@@ -79,6 +23,7 @@ let products = [
       rate: 3.9,
       count: 120,
     },
+    qty: 1,
   },
   {
     id: 2,
@@ -93,6 +38,7 @@ let products = [
       rate: 4.1,
       count: 259,
     },
+    qty: 1,
   },
   {
     id: 3,
@@ -106,6 +52,7 @@ let products = [
       rate: 4.7,
       count: 500,
     },
+    qty: 1,
   },
   {
     id: 4,
@@ -119,6 +66,7 @@ let products = [
       rate: 2.1,
       count: 430,
     },
+    qty: 1,
   },
   {
     id: 5,
@@ -133,6 +81,7 @@ let products = [
       rate: 4.6,
       count: 400,
     },
+    qty: 1,
   },
   {
     id: 6,
@@ -332,5 +281,153 @@ let products = [
       rate: 3.6,
       count: 145,
     },
+    qty: 0, // out of stock
   },
 ];
+
+const productsDiv = document.querySelector(".products"); // 70
+const cartDiv = document.querySelector(".cart"); // 30
+let cartList = JSON.parse(localStorage.getItem("cart")) ?? []; // NULL REPLACEMENT OP
+
+function displayProducts() {
+  products.map((product) => {
+    const productBox = document.createElement("div");
+    productBox.className = "product-box";
+
+    const img = document.createElement("img");
+    img.src = product.image;
+
+    const title = document.createElement("h3");
+    title.textContent = product.title;
+
+    const description = document.createElement("p");
+    description.textContent = product.description;
+
+    const price = document.createElement("h2");
+    price.textContent = "Rs." + product.price + "/-";
+
+    const button = document.createElement("button");
+    button.textContent = "Add to Cart";
+    // click
+    button.addEventListener("click", () => {
+      addToCart(product);
+    });
+
+    productBox.appendChild(img);
+    productBox.appendChild(title);
+    productBox.appendChild(description);
+    productBox.appendChild(price);
+    productBox.appendChild(button);
+
+    productsDiv.appendChild(productBox);
+  });
+}
+
+function displayCart() {
+  cartDiv.innerHTML = "";
+  let total = 0;
+  cartList.map((cart, index) => {
+    const cartBox = document.createElement("div");
+    const img = document.createElement("img");
+    const detail = document.createElement("div");
+    const title = document.createElement("h3");
+    const price = document.createElement("h2");
+    const button = document.createElement("button");
+
+    cartBox.className = "cart-box";
+    img.src = cart.image;
+    detail.className = "detail";
+    title.textContent = cart.title;
+    price.textContent = "Rs. " + cart.price + "/- | Qty - " + cart.qty;
+    button.textContent = "Delete";
+    button.onclick = () => {
+      removeFromCart(index);
+    };
+
+    detail.appendChild(title);
+    detail.appendChild(price);
+    detail.appendChild(button);
+
+    cartBox.appendChild(img);
+    cartBox.appendChild(detail);
+
+    cartDiv.appendChild(cartBox);
+    total += cart.price * cart.qty; // +=
+  });
+  // console.log(total);
+  const totalDisplay = document.createElement("h1");
+  totalDisplay.textContent = "Total : " + total + " /-";
+  cartDiv.appendChild(totalDisplay);
+}
+
+// function - params
+function addToCart(product) {
+  let isExist = false;
+
+  cartList.map((cart) => {
+    if (cart.id == product.id) {
+      cart.qty++;
+      isExist = true;
+    }
+  });
+
+  if (isExist == false) {
+    cartList.push(product);
+  }
+  const json = JSON.stringify(cartList);
+  localStorage.setItem("cart", json);
+  displayCart(); // display all products in cartlist from array.
+}
+
+// REMOVE FROM CART
+function removeFromCart(index) {
+  cartList.splice(index, 1); // [1,2], [1]
+  localStorage.setItem("cart", JSON.stringify(cartList));
+  displayCart(); // display remaing products in cart after deleting
+}
+
+// local storage
+// localStorage.setItem() - string
+// localStorage.getItem() // string --> obj
+// localStorage.clear()
+
+// JSON.stringify({}); //
+// JSON.parse();
+
+// array [] x
+// include --> element/value : bool
+// "qty" : 4
+
+//
+
+// value
+
+displayProducts();
+displayCart();
+
+// ECOM Cart
+// ADD TO CART
+// remove from cart
+// local storage - add, remove
+// total
+
+// tomorrow - small test practical X
+// mcq
+// methods
+//
+
+// loop
+// wap to find sum of 1 to n
+// wap to find sum of all element of array.
+// sum = 0
+
+// sum = sum + i
+// sum = sum + a[i]
+
+// Total : gst
+
+// Programming Motivation
+//
+
+// output video - readme description
+// UI -
