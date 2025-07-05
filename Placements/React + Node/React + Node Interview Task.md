@@ -108,10 +108,87 @@ Build a Library Management System to:
 * Status: "Open", "Closed"
 
 ---
+Great! Here's the **final list of submission instructions** that you can directly share with your students after assigning any of the full-stack React + Node.js practical tasks:
 
-## ✅ Submission Expectations
+---
 
-1. `backend/` folder with Express server, routes
-2. `frontend/` folder with React code (hooks, Axios)
-3. Working API connection
-4. Clean UI and functionality
+## ✅ **Final Submission Guidelines**
+
+### 📤 What Students Must Submit:
+
+---
+
+### 1️⃣ **GitHub Repository (Code Submission)**
+
+* Create a GitHub repository with a meaningful name (e.g., `library-management-system`, `student-attendance-tracker`).
+* Push both the `frontend/` and `backend/` code with proper folder structure.
+* Include `.gitignore` for Node.js and React.
+* **Submit the GitHub repository URL** (example: `https://github.com/yourusername/project-name`)
+
+---
+
+### 2️⃣ **Screen Recording (Feature Demonstration)**
+
+* Record a short screen video (2–5 minutes) **demonstrating all implemented features**:
+
+  * Frontend interaction (add, delete, update, filter, etc.)
+  * Backend functionality (real API calls)
+* Use any screen recorder tool (OBS Studio, Loom, ScreenRec, etc.)
+* Upload the video to:
+
+  * Google Drive (make sure it’s viewable)
+  * OR YouTube (unlisted link is fine)
+* **Submit the video URL** along with the GitHub repo.
+
+---
+
+### 3️⃣ **Project Description in GitHub README.md**
+
+Your GitHub repo must include a `README.md` file with:
+
+#### 📄 README Structure:
+
+````
+# Project Title
+
+## 📚 Description
+Brief summary of the project, technologies used, and what it does.
+
+## 🚀 Features
+- View all [items]
+- Add [item]
+- Delete [item]
+- Update status
+- Filter / Search functionality
+
+## 🛠️ Tech Stack
+- React JS
+- Redux Toolkit / Context API (if used)
+- Node.js + Express
+- Axios
+- (Optional) MongoDB or JSON file
+
+## 📦 Installation
+
+### Backend:
+```bash
+cd backend
+npm install
+node server.js
+````
+
+### Frontend:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+## 📸 Output Screenshots
+
+(Add some screenshots here)
+
+## 🎥 Demo Video
+
+[Click to watch the demo video](your-video-link-here)
