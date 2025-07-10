@@ -175,3 +175,6 @@ Creates a dropdown menu. Use `<option>` tags inside it.
 * `<select>` with `<option>` creates dropdown.
 * Use `selected`, `checked`, `value`, and `placeholder` wisely.
 * `<button>` has types: `submit`, `reset`, `button`.
+
+## Lab Task : 
+https://docs.google.com/document/d/1rfw0LSh7OSBqS-GzU2kEd6uTcwLQOX41NFWqN3xlK9g/edit?tab=t.0
