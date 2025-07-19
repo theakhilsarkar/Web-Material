@@ -72,7 +72,6 @@ console.log(x);
 
 Arrow functions provide a **shorter syntax** for writing functions and **do not bind their own `this`**.
 
----
 
 ### **Why use it?**
 
