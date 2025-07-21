@@ -198,22 +198,132 @@ const movie = { title: "RRR", year: 2022, director: "Rajamouli" };
 * Rest → **Handling dynamic arguments in functions**.
 
 
-### **Example**
+### ✅ **Examples of Spread Operator**
+
+#### **a) Spread in Arrays**
 
 ```javascript
-// Spread Example
-const arr1 = [1, 2];
-const arr2 = [3, 4];
-const combined = [...arr1, ...arr2];
-console.log(combined); // [1, 2, 3, 4]
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
 
-// Rest Example
-function sum(...nums) {
-  return nums.reduce((a, b) => a + b);
-}
-console.log(sum(1, 2, 3)); // 6
+const combined = [...arr1, ...arr2];
+console.log(combined); // [1, 2, 3, 4, 5, 6]
 ```
 
+---
+
+#### **b) Copying an Array**
+
+```javascript
+const original = [1, 2, 3];
+const copy = [...original];
+
+copy.push(4);
+
+console.log(original); // [1, 2, 3]
+console.log(copy);     // [1, 2, 3, 4]
+```
+
+---
+
+#### **c) Spread in Objects**
+
+```javascript
+const user = { name: "Alice", age: 25 };
+const updatedUser = { ...user, city: "Delhi" };
+
+console.log(updatedUser);
+// { name: "Alice", age: 25, city: "Delhi" }
+```
+
+---
+
+#### **d) Spread in Function Calls**
+
+```javascript
+function sum(a, b, c) {
+  return a + b + c;
+}
+
+const numbers = [1, 2, 3];
+console.log(sum(...numbers)); // 6
+```
+
+
+---
+
+## ✅ **2. Rest Operator**
+
+The **Rest Operator (`...`)** is used to **collect multiple arguments into a single variable** (array or object).
+
+---
+
+### ✅ **Why use Rest?**
+
+* To create functions that **accept any number of arguments**.
+* To extract **remaining properties** from objects or arrays.
+
+---
+
+### ✅ **Examples of Rest Operator**
+
+#### **a) Rest in Functions**
+
+```javascript
+function sum(...nums) {
+  return nums.reduce((total, num) => total + num, 0);
+}
+
+console.log(sum(1, 2, 3, 4)); // 10
+```
+
+---
+
+#### **b) Rest in Destructuring**
+
+```javascript
+const [first, second, ...rest] = [10, 20, 30, 40, 50];
+console.log(first); // 10
+console.log(second); // 20
+console.log(rest); // [30, 40, 50]
+```
+
+---
+
+#### **c) Rest in Objects**
+
+```javascript
+const user = { name: "Alice", age: 25, city: "Delhi" };
+const { name, ...otherDetails } = user;
+
+console.log(name); // Alice
+console.log(otherDetails); // { age: 25, city: "Delhi" }
+```
+
+---
+
+---
+
+### ✅ **Key Differences Between Spread & Rest**
+
+| Feature | Spread Operator                  | Rest Operator                        |
+| ------- | -------------------------------- | ------------------------------------ |
+| Purpose | Expands values                   | Collects values into an array/object |
+| Used In | Arrays, Objects, Function Calls  | Functions, Destructuring             |
+| Example | `sum(...[1,2,3])` → `sum(1,2,3)` | `function sum(...args){}`            |
+
+---
+
+
+
+
+
+### ✅ **Practice Questions**
+
+1. Merge two arrays using the **spread operator**.
+2. Write a function `multiply` that accepts **any number of arguments** using **rest**.
+3. Use destructuring with **rest** to extract the first two elements of an array and store the rest in a variable.
+4. Copy an object using **spread** and add a new property.
 
 ### **Role in Development**
 
@@ -224,7 +334,7 @@ console.log(sum(1, 2, 3)); // 6
 ### **Practice Question**
 
 ```javascript
-// Combine two objects using sthe pread operator:
+// Combine two objects using the spread operator:
 const obj1 = { a: 1 };
 const obj2 = { b: 2 };
 ```
