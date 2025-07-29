@@ -1,157 +1,232 @@
-
-# 🎓 **CSS Lecture 05: Display Properties**
-
----
-
-## 📖 **Introduction to Display in CSS**
-
-The `display` property in CSS determines how an element is visually represented and behaves in the layout. It is one of the most commonly used properties to control **how elements are rendered in the document flow**.
+# 🎓 **CSS Lecture 05: Display Properties – Complete Guide**
 
 ---
 
-## 🏷️ **Common Display Values**
+## 📘 **What is `display` in CSS?**
 
-### ✅ 1. `block`
+The `display` property determines **how an element is rendered** on the web page. It's one of the most essential CSS properties for layout and structure.
 
-* **Definition:** Elements with `display: block` take up the full width available, starting on a new line.
-* **Examples of Block Elements:** `<div>`, `<p>`, `<h1>`–`<h6>`, `<section>`, `<article>`
+---
 
-#### 🧠 Features:
+## 🧱 **Basic Display Types**
 
-* Always starts on a new line.
-* Can set `width`, `height`, `margin`, `padding`.
-* Stretches to full width of parent container by default.
+### 1. `block`
 
-#### 🧪 Example:
+* **Starts on a new line**, takes up full width.
+* You can set `width`, `height`, `margin`, `padding`.
+* Default for: `<div>`, `<p>`, `<h1>`–`<h6>`, `<section>`, etc.
 
 ```html
-<div style="display: block; background-color: lightblue; width: 300px;">
-  This is a block element.
+<div style="display: block; background: #add8e6;">Block Element</div>
+```
+
+---
+
+### 2. `inline`
+
+* **Does not start on a new line**, takes only the space it needs.
+* Cannot set `width` or `height`.
+* Default for: `<span>`, `<a>`, `<b>`, `<i>`
+
+```html
+<span style="display: inline; background: yellow;">Inline Text</span>
+```
+
+---
+
+### 3. `inline-block`
+
+* Behaves like `inline` but **supports width and height**.
+* Great for buttons, badges, or small card layouts.
+
+```html
+<div style="display: inline-block; width: 100px; height: 50px; background: orange;">
+  Inline-Block Box
 </div>
 ```
 
 ---
 
-### ✅ 2. `inline`
+### 4. `none`
 
-* **Definition:** Elements with `display: inline` do **not start on a new line** and take up only as much width as necessary.
-* **Examples of Inline Elements:** `<span>`, `<a>`, `<b>`, `<i>`
-
-#### 🧠 Features:
-
-* Cannot set `width` and `height`.
-* Flows with surrounding content like words in a sentence.
-
-#### 🧪 Example:
+* **Completely hides** the element. It's removed from layout and flow.
+* Unlike `visibility: hidden` (which keeps space).
 
 ```html
-<span style="display: inline; background-color: yellow;">
-  This is an inline element.
-</span>
+<div style="display: none;">Hidden Content</div>
 ```
 
 ---
 
-### ✅ 3. `inline-block`
+## 🧩 **Advanced Display Types**
 
-* **Definition:** Combines features of both `inline` and `block`.
-* Sits inline like `inline`, but you **can set width and height** like `block`.
+### 5. `flex`
 
-#### 🧠 Features:
-
-* Flows with text but behaves like a block for sizing.
-* Useful for buttons, cards, or small boxes.
-
-#### 🧪 Example:
+* Enables **flexbox layout**, allowing you to align items easily in rows or columns.
+* Parent becomes a **flex container**, and children become **flex items**.
 
 ```html
-<div style="display: inline-block; width: 150px; height: 100px; background-color: orange; margin: 5px;">
-  This is inline-block.
+<div style="display: flex; gap: 10px;">
+  <div style="background: #ffa;">Item 1</div>
+  <div style="background: #aaf;">Item 2</div>
+</div>
+```
+
+Use with properties like:
+
+* `justify-content`
+* `align-items`
+* `flex-direction`
+
+---
+
+### 6. `grid`
+
+* Creates a **two-dimensional layout**, perfect for web pages, galleries, and dashboards.
+
+```html
+<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+  <div style="background: #f99;">Grid 1</div>
+  <div style="background: #9f9;">Grid 2</div>
+  <div style="background: #99f;">Grid 3</div>
+</div>
+```
+
+Use with properties like:
+
+* `grid-template-rows`, `grid-template-columns`
+* `gap`, `grid-area`, `grid-row`, `grid-column`
+
+---
+
+### 7. `table`, `table-row`, `table-cell`
+
+* Makes elements behave like HTML table elements.
+* Useful when building table-like layouts without using actual `<table>`.
+
+```html
+<div style="display: table;">
+  <div style="display: table-row;">
+    <div style="display: table-cell; padding: 10px; background: #eee;">Cell 1</div>
+    <div style="display: table-cell; padding: 10px; background: #ccc;">Cell 2</div>
+  </div>
 </div>
 ```
 
 ---
 
-### ✅ 4. `none`
+## 🧠 Summary Table
 
-* **Definition:** Completely removes the element from the document **visually and structurally**.
-* **Used For:** Hiding elements dynamically, such as through JavaScript or responsive design.
-
-#### 🧠 Features:
-
-* Element is not visible and takes up no space.
-* Different from `visibility: hidden` (which hides but keeps space).
-
-#### 🧪 Example:
-
-```html
-<div style="display: none;">
-  This is hidden and removed from layout.
-</div>
-```
+| Display Value  | Starts New Line | Can Set Width/Height | Layout Type   | Use Case                     |
+| -------------- | --------------- | -------------------- | ------------- | ---------------------------- |
+| `block`        | ✅               | ✅                    | Basic         | Layout sections/divs         |
+| `inline`       | ❌               | ❌                    | Text flow     | Links, highlighted text      |
+| `inline-block` | ❌               | ✅                    | Text + Layout | Buttons, labels, nav links   |
+| `none`         | ❌               | ❌                    | Hidden        | Hide/show elements           |
+| `flex`         | ❌               | ✅                    | 1D Layout     | Navbars, cards, UI alignment |
+| `grid`         | ❌               | ✅                    | 2D Layout     | Complex layouts, galleries   |
+| `table`        | ✅ (rows)        | ✅                    | Table-like    | Table-style layouts          |
 
 ---
 
-## ⚖️ **Display Property Comparison Table**
-
-| Property       | New Line | Width/Height | Flow With Text | Visible | Use Case                    |
-| -------------- | -------- | ------------ | -------------- | ------- | --------------------------- |
-| `block`        | Yes      | Yes          | No             | Yes     | Layout containers, sections |
-| `inline`       | No       | No           | Yes            | Yes     | Styling text, links         |
-| `inline-block` | No       | Yes          | Yes            | Yes     | Buttons, inline boxes       |
-| `none`         | N/A      | N/A          | N/A            | No      | Hide elements dynamically   |
-
----
-
-## 🧪 Practical Exercise for Students
+## 🧪 Final Practical Code (All Display Types)
 
 ```html
 <!DOCTYPE html>
 <html>
 <head>
   <style>
-    .block-box {
+    .block {
       display: block;
-      background: lightblue;
-      margin-bottom: 10px;
-      width: 300px;
+      background: #f9c;
+      padding: 10px;
     }
-    .inline-box {
+
+    .inline {
       display: inline;
-      background: yellow;
+      background: #ffc;
+      padding: 5px;
     }
-    .inline-block-box {
+
+    .inline-block {
       display: inline-block;
-      width: 150px;
-      height: 80px;
-      background: orange;
+      width: 100px;
+      height: 60px;
+      background: #cfc;
       margin: 5px;
     }
-    .hidden-box {
-      display: none;
+
+    .flexbox {
+      display: flex;
+      gap: 10px;
+      background: #e0f7fa;
+      padding: 10px;
+    }
+
+    .flexbox div {
+      background: #80deea;
+      padding: 10px;
+      flex: 1;
+    }
+
+    .gridbox {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      background: #fff3e0;
+      padding: 10px;
+    }
+
+    .gridbox div {
+      background: #ffb74d;
+      padding: 10px;
+    }
+
+    .tablebox {
+      display: table;
+      width: 100%;
+    }
+
+    .tablerow {
+      display: table-row;
+    }
+
+    .tablecell {
+      display: table-cell;
+      padding: 10px;
+      border: 1px solid #999;
     }
   </style>
 </head>
 <body>
 
-  <div class="block-box">Block Box (Takes full line)</div>
+  <div class="block">Block Element</div>
 
-  <span class="inline-box">Inline Box</span>
-  <span class="inline-box">Another Inline Box</span>
+  <span class="inline">Inline 1</span>
+  <span class="inline">Inline 2</span>
 
-  <div class="inline-block-box">Inline Block 1</div>
-  <div class="inline-block-box">Inline Block 2</div>
+  <div class="inline-block">Inline-Block A</div>
+  <div class="inline-block">Inline-Block B</div>
 
-  <div class="hidden-box">You cannot see me!</div>
+  <div class="flexbox">
+    <div>Flex Item 1</div>
+    <div>Flex Item 2</div>
+    <div>Flex Item 3</div>
+  </div>
+
+  <div class="gridbox">
+    <div>Grid 1</div>
+    <div>Grid 2</div>
+    <div>Grid 3</div>
+  </div>
+
+  <div class="tablebox">
+    <div class="tablerow">
+      <div class="tablecell">Cell 1</div>
+      <div class="tablecell">Cell 2</div>
+    </div>
+  </div>
 
 </body>
 </html>
 ```
-
----
-
-## ✅ Developer Notes / Facts
-
-* `inline-block` is useful for responsive layouts where you want items on the same line but with full sizing control.
-* `display: none` is great for dropdown menus, modals, or mobile nav menus that appear on user action.
-* `display` can also take advanced values like `flex`, `grid`, and `table` (covered in later lectures).
