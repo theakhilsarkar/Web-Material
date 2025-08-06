@@ -234,7 +234,8 @@ Use with properties like:
 </html>
 ```
 
-```
+## 🧪 Auto Size Gallery
+```html
 <!DOCTYPE html>
 <html lang="en">
 
