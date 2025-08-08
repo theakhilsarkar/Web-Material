@@ -263,3 +263,141 @@ body {
 
 </html>
 ```
+ **Build Animated Buttons**:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Hover Effects</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 50px;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+
+        /* 1️⃣ Color Change */
+        .btn1 {
+            background: #3498db;
+            color: white;
+        }
+
+        .btn1:hover {
+            background: #2ecc71;
+        }
+
+        /* 2️⃣ Grow / Scale */
+        .btn2 {
+            background: #e67e22;
+            color: white;
+        }
+
+        .btn2:hover {
+            transform: scale(1.1);
+        }
+
+        /* 3️⃣ Shadow Pop */
+        .btn3 {
+            background: #8e44ad;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn3:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        /* 4️⃣ Border Expand */
+        .btn4 {
+            background: white;
+            color: black;
+            border: 2px solid #000;
+        }
+
+        .btn4:hover {
+            border-color: red;
+            letter-spacing: 2px;
+        }
+
+        /* 5️⃣ Slide Background */
+        .btn5 {
+            position: relative;
+            background: transparent;
+            color: black;
+            border: 2px solid black;
+            /* overflow: hidden; */
+        }
+
+        .btn5::before {
+            content: "";
+            position: absolute;
+            left: -100%;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            z-index: -1;
+            transition: 0.4s;
+        }
+
+        .btn5:hover {
+            color: white;
+        }
+
+        .btn5:hover::before {
+            left: 0;
+        }
+
+        /* 6️⃣ Rotate on Hover */
+        .btn6 {
+            background: #16a085;
+            color: white;
+        }
+
+        .btn6:hover {
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        /* 7️⃣ Glow Effect */
+        .btn7 {
+            background: #ff4757;
+            color: white;
+        }
+
+        .btn7:hover {
+            box-shadow: 0 0 10px #ff4757, 0 0 20px #ff6b81, 0 0 40px #ff6b81;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="btn1">Color Change</button>
+    <button class="btn2">Grow</button>
+    <button class="btn3">Shadow Pop</button>
+    <button class="btn4">Border Expand</button>
+    <button class="btn5">Slide Background</button>
+    <button class="btn6">Rotate</button>
+    <button class="btn7">Glow</button>
+
+</body>
+
+</html>
+
+```
