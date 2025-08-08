@@ -401,3 +401,56 @@ body {
 </html>
 
 ```
+
+ **Build Image Scale Effect**:
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Hover Zoom</title>
+    <style>
+        body {
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .image-container {
+            overflow: hidden;
+            /* hides overflow when zooming */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            height: 200px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.2);
+            /* zoom in */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="image-container">
+        <img src="https://picsum.photos/600/400" alt="Sample Image">
+    </div>
+
+</body>
+
+</html>
+
+```
