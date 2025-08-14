@@ -146,7 +146,3 @@
 * **`flex-shrink`** → Space reduction control
 * **`order`** → Change visual order without changing HTML
 * **`align-self`** → Individual vertical alignment
-
----
-
-If you want, I can make **Lecture 10–12 combined** into a **single Flexbox Masterclass document** so your students can see **Parent + Child properties in one place** with diagrams. That would make it easier for them to understand Flexbox completely.
