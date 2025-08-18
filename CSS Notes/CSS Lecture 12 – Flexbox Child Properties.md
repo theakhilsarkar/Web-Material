@@ -1,5 +1,3 @@
-
-
 # **Lecture 12 – Flexbox Child Properties**
 
 ---
