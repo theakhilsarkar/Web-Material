@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 18px;
+}
+
+.header-1 {
+    height: 40px;
+    background-color: red;
+}
+
+
+.header-2 {
+    display: flex;
+    justify-content: center;
+}
+
+
+.header-2 .center-header {
+    /* background-color: antiquewhite; */
+    width: 1220px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.header-menus {
+    display: flex;
+    gap: 20px;
+}
+
+.section-1 {
+    background-color: rgb(23, 23, 76);
+    height: auto;
+    /* height: 630px; */
+    width: 100%;
+    /* object-fit: cover; */
+    /* 334px less --> our website is not available for this dimension/size*/
+}
+
+.section-1 img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.header-buttons {
+    display: none;
+}
+
+.section-2 {
+
+    background-color: rgb(23, 23, 76);
+    height: 181px;
+    width: 100%;
+    display: flex;
+    color: white;
+    justify-content: center;
+}
+
+.about-classes {
+    height: 100%;
+    /* background-color: antiquewhite; */
+    width: 1220px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    /* padding: 0 16px; */
+}
+
+.about-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+}
+
+.section-3 {
+    height: 400px;
+}
+
+.about-box h1 {
+    font-weight: 500;
+}
+
+.ri-user-line {
+    font-size: 1.5rem;
+}
