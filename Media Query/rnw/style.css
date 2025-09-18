@@ -82,9 +82,6 @@ html {
     gap: 10px;
 }
 
-.section-3 {
-    height: 400px;
-}
 
 .about-box h1 {
     font-weight: 500;
@@ -93,3 +90,92 @@ html {
 .ri-user-line {
     font-size: 1.5rem;
 }
+
+
+
+.section-3 {
+    background-color: antiquewhite;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* height: 400px; */
+}
+
+.courses {
+    /* background-color: blueviolet; */
+    padding: 10px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    /* grid-template-columns: repeat(6, 1fr); */
+    /* grid-template-rows: repeat(2, 220px); */
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 1220px;
+}
+
+.course-box {
+    /* box-sizing: border-box; */
+    width: 180px;
+    height: 180px;
+    padding: 10px;
+    /* aspect-ratio: 1/1; */
+    background-color: beige;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+.course-box p {
+    font-size: 24px;
+}
+
+
+.section-4 {
+    height: 400px;
+}
+
+
+
+/*
+
+uber --> online cab/bike/auto
+ola --> online cab/bike/auto
+
+taxi --> 
+
+problems -->
+
+1. crowd
+2. lack of knowledge of bus routes
+3. monsoon - open platform, trafic
+4. chori
+5. time
+6. facility
+7. 
+
+idea
+
+development(web) + design(logo,web ui) = IT
+
+coding
+
+no code development -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
