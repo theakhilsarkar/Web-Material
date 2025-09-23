@@ -133,49 +133,47 @@ html {
     font-size: 24px;
 }
 
-
 .section-4 {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 1220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .mac,
+.ad-video {
+    width: 100%;
+}
+
+.ad-video {
+    height: 80%;
+    z-index: -20;
+    position: absolute;
+    left: 0;
+}
+
+.container-info {
+    width: 60%;
+}
+
+.container-ad {
+    width: 40%;
+    position: relative;
+}
+
+.section-5 {
     height: 400px;
 }
 
 
 
-/*
-
-uber --> online cab/bike/auto
-ola --> online cab/bike/auto
-
-taxi --> 
-
-problems -->
-
-1. crowd
-2. lack of knowledge of bus routes
-3. monsoon - open platform, trafic
-4. chori
-5. time
-6. facility
-7. 
-
-idea
-
-development(web) + design(logo,web ui) = IT
-
-coding
-
-no code development -->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-*/
