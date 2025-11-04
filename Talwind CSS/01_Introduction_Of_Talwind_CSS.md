@@ -1,8 +1,4 @@
 
-Let’s start with **Part 1: Introduction to Tailwind CSS** 🧩
-
----
-
 ## 🧠 Part 1: What is Tailwind CSS?
 
 ### 🔹 Definition:
