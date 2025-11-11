@@ -145,6 +145,45 @@ const server = http.createServer((req, res) => {
 server.listen(6000, () => console.log("Server running on http://localhost:6000"));
 ```
 
+by modern ES Module system
+
+```js
+import http from 'http'
+import {fileURLToPath} from 'url'
+import fs from 'fs'
+import path from 'path'
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+
+const server = http.createServer((req, res) => {
+  if (req.method === 'GET' && req.url === '/') {
+    const filePath = path.join(__dirname, 'index.html')
+    console.log(filePath);
+    fs.readFile(filePath, (err, data) => {
+      if (err) {
+        res.writeHead(500, { 'Content-Type': 'text/plain' })
+        res.end('Internal Server Error')
+        return
+      }
+      res.writeHead(200, { 'Content-Type': 'text/html' })
+      res.end(data)
+    })
+  } else {
+    res.writeHead(404, { 'Content-Type': 'text/plain' })
+    res.end('Not Found')
+  }
+})
+
+const PORT = 3000
+server.listen(PORT, () => {
+  console.log(`Server is running at http://localhost:${PORT}`)
+})  
+
+
+```
+
 ✅ This loads your local `index.html` file and serves it to the browser.
 
 ---
@@ -291,6 +330,8 @@ server.listen(5050, () => console.log("Server running on http://localhost:5050")
 ```
 
 ---
+
+
 
 ## ✅ Summary Recap
 
