@@ -176,7 +176,7 @@ npm install chalk
 #### app.js
 
 ```js
-const chalk = require("chalk");
+import chalk from 'chalk'; // IMPORTANT: Chalk 5 is ESM.
 
 console.log(chalk.green("Success!"));
 console.log(chalk.red("Error!"));
