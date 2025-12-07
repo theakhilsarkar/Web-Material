@@ -1,4 +1,3 @@
-Below is a **complete beginner-friendly documentation guide for students** on **image upload using Multer middleware in Express + Mongo
 # 📘 Documentation — Upload Image in Express using Multer Middleware
 
 ## 🔥 1. What is Multer?
