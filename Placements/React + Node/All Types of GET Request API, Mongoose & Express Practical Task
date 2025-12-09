@@ -1,0 +1,39 @@
+Title: Express + MongoDB Filter API Practical Task
+
+Task Description:
+
+Create a project using Express, MongoDB, and Mongoose where a student must build multiple GET routes to filter data of a product collection. The product collection must contain minimum fields: productName, category, brand, price, rating, description, createdAt.
+
+Requirements:
+
+1. Create a REST API with the following GET routes:
+   a) Fetch all products.
+   b) Fetch products by ID.
+   c) Search products by productName (case insensitive search).
+   d) Search products by brand.
+   e) Search products by multiple fields combined (productName + category + brand).
+   f) Fetch products by category (category should come from query parameter).
+   g) Filter products by price range (min and max price from query).
+   h) Filter products by rating above a given value.
+   i) Route for sorting products (sort by price ascending or descending based on query parameter).
+   j) Pagination route:
+
+   * Accept page number and limit from query
+   * Return products for the requested page
+   * Also return total count of products and total pages.
+
+2. Explanation of pagination for students:
+   Pagination is the method of dividing large datasets into smaller parts based on page number and limit, so instead of sending all items at once, only a specific subset of items is sent for each request.
+   Example: If there are 100 products and limit=10, then page 1 returns product 1–10, page 2 returns 11–20, page 3 returns 21–30, and so on.
+
+3. Error handling:
+   If no result is found for any filter, API should return a message: "No products found".
+
+4. Bonus condition:
+   Allow two or more filters to work together in a single API (example: category + price range + rating + sort + page).
+
+5. Students must demonstrate API testing in Postman.
+
+Output:
+Only backend API is required. No frontend is needed.
+
