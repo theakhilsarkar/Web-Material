@@ -1,241 +1,151 @@
-# 1️⃣ What is Shopify?
+# Password Hashing using bcrypt (Node.js)
 
-**Shopify** is a **cloud-based e-commerce platform** that helps you **create, manage, and grow an online store** without needing to build everything from scratch.
+## 1. What is Password Hashing?
 
-With Shopify, you can:
+Password hashing is the process of converting a **plain text password** into a **fixed-length encrypted string (hash)**.
 
-* Sell **physical products** (clothes, idols, perfumes, accessories)
-* Sell **digital products**
-* Manage **orders, payments, inventory**
-* Design your store using **themes**
-* Add features using **apps**
-
-👉 Example:
-Your **Ladoo Gopal products website** is a perfect use case for Shopify.
+* Original password **cannot be recovered**
+* Same password → **different hash every time**
+* Used to protect user credentials in databases
 
 ---
 
-# 2️⃣ How Shopify Works (Simple Flow)
+## 2. Why We Should Hash Passwords
 
-1. Create Shopify account
-2. Choose a theme
-3. Add products
-4. Set payment & shipping
-5. Publish store
-6. Start selling
+❌ Storing plain passwords is dangerous
+✔ Hashing protects users even if database is leaked
 
-Everything runs on **Shopify’s servers**, so you don’t manage hosting or security.
+**Benefits:**
 
----
-
-# 3️⃣ Advantages of Shopify ✅
-
-### 🔹 1. Easy to Use
-
-* No coding required to start
-* Dashboard is beginner-friendly
-
-### 🔹 2. All-in-One Platform
-
-* Hosting
-* SSL certificate
-* Payments
-* Inventory
-* Orders
-* Taxes
-
-All included.
-
-### 🔹 3. Secure & Reliable
-
-* PCI-DSS compliant
-* Automatic security updates
-* Handles high traffic easily
-
-### 🔹 4. Mobile Friendly
-
-* All themes are responsive
-* Admin app available (Android & iOS)
-
-### 🔹 5. App Ecosystem
-
-* 8,000+ apps
-* SEO, marketing, WhatsApp, reviews, COD apps
-
-### 🔹 6. Scalable
-
-* Works for:
-
-  * Small stores
-  * Medium businesses
-  * Enterprise (Shopify Plus)
+* Prevents password theft
+* Protects against database hacking
+* Required for secure authentication systems
 
 ---
 
-# 4️⃣ Disadvantages of Shopify ❌
+## 3. What is bcrypt?
 
-### 🔸 1. Monthly Cost
+**bcrypt** is a popular password-hashing library that:
 
-* No lifetime free plan
-* Monthly subscription required
+* Uses **salt** automatically
+* Is **slow by design** (prevents brute-force attacks)
+* Produces **strong, irreversible hashes**
 
-### 🔸 2. Transaction Fees
+Used widely in:
 
-* Extra fees if not using Shopify Payments
-
-### 🔸 3. Limited Backend Control
-
-* No direct access to core backend code
-* You cannot modify server logic
-
-### 🔸 4. App Dependency
-
-* Many features require paid apps
-* Can increase monthly cost
+* Node.js
+* Banking apps
+* Authentication systems
 
 ---
 
-# 5️⃣ What is Customization in Shopify?
+## 4. Install bcrypt
 
-**Customization** means **changing the look, behavior, or features** of your Shopify store beyond default settings.
-
-### Types of Customization:
-
-#### 🎨 Design Customization
-
-* Colors
-* Fonts
-* Layout
-* Homepage sections
-* Product page design
-
-#### ⚙️ Functional Customization
-
-* Custom product options
-* Custom checkout (limited)
-* Custom logic using Liquid
-* Automation using Shopify Flow
-
-#### 🧩 App-based Customization
-
-* Reviews
-* Subscriptions
-* WhatsApp chat
-* COD forms
-
-👉 Example:
-Showing **different dress sizes for different Ladoo Gopal idols** is customization.
-
----
-
-# 6️⃣ What is Liquid (Shopify Liquid)?
-
-**Liquid** is Shopify’s **template language**.
-
-### Simple Definition:
-
-> Liquid is used to **display dynamic data** (products, prices, images) inside themes.
-
-### What Liquid Does:
-
-* Fetch product data
-* Loop through products
-* Show conditional content
-
-### Example:
-
-```liquid
-{{ product.title }}
-{{ product.price }}
+```bash
+npm install bcrypt
 ```
 
-### Why Liquid is Important:
+---
 
-* Without Liquid, themes would be static
-* Liquid connects **Shopify data → Frontend**
+## 5. Hashing Password (Signup)
 
-👉 Liquid is **not backend logic**, it’s **template logic**.
+```js
+import bcrypt from "bcrypt";
+
+const password = "mypassword123";
+
+// Hash password
+const hashedPassword = await bcrypt.hash(password, 10);
+
+console.log(hashedPassword);
+```
+
+### Explanation:
+
+* `password` → plain text password
+* `10` → salt rounds (security level)
+* Output → hashed password stored in DB
 
 ---
 
-# 7️⃣ What is a Shopify Theme?
+## 6. Comparing Password (Login)
 
-A **theme** is a **ready-made design structure** of a Shopify store.
+```js
+const isMatch = await bcrypt.compare(
+  "mypassword123",
+  hashedPassword
+);
 
-### Theme Includes:
+console.log(isMatch); // true or false
+```
 
-* Layout (header, footer)
-* Product page design
-* Collection pages
-* Cart page
-* Mobile responsiveness
+### Explanation:
 
-### Types of Themes:
-
-* Free themes (Dawn, Sense, Craft)
-* Paid themes (Rise, Impulse, Prestige)
-
-👉 You are using **Rise Theme**, which is good for:
-
-* Brand storytelling
-* Clean product focus
-* Premium look
+* bcrypt hashes entered password
+* Compares with stored hash
+* Returns `true` if matched
 
 ---
 
-# 8️⃣ What is Specialization in Shopify?
+## 7. What is Salt?
 
-**Specialization** means focusing on **one strong area** instead of everything.
+Salt is **random data** added to a password before hashing.
 
-### Shopify Specialization Examples:
+* Prevents rainbow table attacks
+* Ensures same password → different hash
+* bcrypt handles salt automatically
 
-* Shopify Theme Developer
-* Shopify SEO Expert
-* Shopify Product Upload Specialist
-* Shopify App Integration Expert
-* Shopify Store Setup Consultant
+Example:
 
-👉 Your specialization could be:
-
-> **Spiritual / Religious Product Shopify Stores**
-
-This is a **high-trust niche**.
+```
+password123 + randomSalt → unique hash
+```
 
 ---
 
-# 9️⃣ Scope of Shopify (Career & Business) 🚀
+## 8. What are Salt Rounds?
 
-### 📈 Business Scope
+Salt rounds define **how many times hashing is repeated**.
 
-* Start your own store
-* Dropshipping
-* Niche stores (like yours)
-* B2B selling
+| Rounds | Security               | Speed  |
+| ------ | ---------------------- | ------ |
+| 8      | Low                    | Fast   |
+| 10     | Balanced (Recommended) | Medium |
+| 12+    | High                   | Slower |
 
-### 💼 Career Scope
-
-* Shopify Developer
-* Theme Customizer
-* Store Manager
-* Freelancer (Upwork, Fiverr)
-* Agency work
-
-### 💰 Income Potential (India)
-
-* Store setup: ₹15k – ₹50k
-* Theme customization: ₹500 – ₹1500/hr
-* Monthly store management: ₹10k – ₹40k
-* International clients: $$$
+✔ Recommended: **10–12**
 
 ---
 
-# 🔟 Summary (One-Line Each)
+## 9. Why bcrypt is Secure
 
-* **Shopify**: Platform to build and run online stores
-* **Advantages**: Easy, secure, scalable
-* **Disadvantages**: Cost, limited backend
-* **Customization**: Changing design & behavior
-* **Liquid**: Shopify template language
-* **Theme**: Store design framework
-* **Specialization**: Focused Shopify skill
-* **Scope**: Huge business & career opportunities
+* One-way hashing (cannot decrypt)
+* Automatic salting
+* Slow hashing (brute-force protection)
+* Industry accepted standard
+
+---
+
+## 10. bcrypt vs Encryption
+
+| Feature      | Hashing (bcrypt) | Encryption        |
+| ------------ | ---------------- | ----------------- |
+| Reversible   | ❌ No             | ✅ Yes             |
+| Password use | ✅ Best           | ❌ Not recommended |
+| Storage      | Hash only        | Encrypted text    |
+
+---
+
+## 11. Best Practices
+
+✔ Always hash passwords
+✔ Never log passwords
+✔ Never store plain text passwords
+✔ Use environment variables for secrets
+✔ Use bcrypt.compare() only for login
+
+---
+
+## 12. One-Line Teaching Summary
+
+> bcrypt converts passwords into secure, irreversible hashes to protect user accounts.
