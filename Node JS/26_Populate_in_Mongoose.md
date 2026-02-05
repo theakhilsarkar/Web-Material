@@ -337,3 +337,249 @@ mongoose.model("User")
 ## 21. One-Line Interview Answer
 
 > `populate()` is used in Mongoose to fetch related documents from another collection using ObjectId references.
+>
+> 
+---
+
+## 22. Populate with 3 Tables (Multi-Collection Relationship)
+
+### Concept
+
+Sometimes data is related to **more than 2 collections**.
+
+Example (E-commerce / Blog hybrid):
+
+* A **Post** is written by a **User**
+* A **Post** belongs to a **Category**
+
+So relationship is:
+
+```
+User  →  Post  →  Category
+```
+
+We want output like:
+
+* Post title
+* Author name
+* Category name
+
+All in **one API call**
+
+---
+
+## 23. Schema Design (3 Collections)
+
+### User Schema
+
+```js
+const userSchema = new mongoose.Schema({
+  name: String,
+  email: String
+});
+
+export const User = mongoose.model("User", userSchema);
+```
+
+---
+
+### Category Schema
+
+```js
+const categorySchema = new mongoose.Schema({
+  categoryName: String
+});
+
+export const Category = mongoose.model("Category", categorySchema);
+```
+
+---
+
+### Post Schema (References User + Category)
+
+```js
+const postSchema = new mongoose.Schema({
+  title: String,
+  content: String,
+  author: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User"
+  },
+  category: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Category"
+  }
+});
+
+export const Post = mongoose.model("Post", postSchema);
+```
+
+---
+
+## 24. How Data is Stored in MongoDB (Reality)
+
+### Stored Post Document
+
+```json
+{
+  "title": "MongoDB Populate",
+  "content": "Using populate with multiple tables",
+  "author": "64user123",
+  "category": "64cat456"
+}
+```
+
+⚠️ Only IDs are stored:
+
+* `author` → User ID
+* `category` → Category ID
+
+---
+
+## 25. Fetch WITHOUT populate
+
+```js
+const posts = await Post.find();
+```
+
+### Output
+
+```json
+{
+  "title": "MongoDB Populate",
+  "author": "64user123",
+  "category": "64cat456"
+}
+```
+
+❌ No user data
+❌ No category data
+❌ Frontend useless
+
+---
+
+## 26. Fetch WITH populate (3 Tables)
+
+```js
+const posts = await Post.find()
+  .populate("author")
+  .populate("category");
+```
+
+---
+
+## 27. What Happens Internally
+
+1. Takes `author` ID → fetches from **User collection**
+2. Takes `category` ID → fetches from **Category collection**
+3. Replaces both IDs with real documents
+
+---
+
+## 28. Output (After populate)
+
+```json
+{
+  "title": "MongoDB Populate",
+  "content": "Using populate with multiple tables",
+  "author": {
+    "_id": "64user123",
+    "name": "Akhil",
+    "email": "akhil@gmail.com"
+  },
+  "category": {
+    "_id": "64cat456",
+    "categoryName": "Database"
+  }
+}
+```
+
+✅ Post data
+✅ User data
+✅ Category data
+➡ All from **one query**
+
+---
+
+## 29. Optimized Version (Select Fields)
+
+```js
+const posts = await Post.find()
+  .populate("author", "name email")
+  .populate("category", "categoryName");
+```
+
+### Output
+
+```json
+{
+  "title": "MongoDB Populate",
+  "author": {
+    "name": "Akhil",
+    "email": "akhil@gmail.com"
+  },
+  "category": {
+    "categoryName": "Database"
+  }
+}
+```
+
+✔ Faster
+✔ Secure
+✔ Clean response
+
+---
+
+## 30. Real-Life Scenario (3 Tables)
+
+### Blog System
+
+| Collection | Purpose     |
+| ---------- | ----------- |
+| User       | Author info |
+| Post       | Blog post   |
+| Category   | Post type   |
+
+Frontend needs:
+
+* Post title
+* Author name
+* Category name
+
+👉 Achieved using **multiple populate**
+
+---
+
+## 31. One-Line Interview Answer (3 Tables)
+
+> We can populate multiple collections in Mongoose by calling `populate()` for each referenced field, allowing us to join data from 3 or more collections in a single query.
+
+---
+
+## 32. Student Practice Task (3 Tables)
+
+### Task
+
+1. Create:
+
+   * User schema
+   * Category schema
+   * Post schema (with user & category reference)
+2. Insert:
+
+   * 2 users
+   * 2 categories
+   * 3 posts
+3. Fetch posts using:
+
+   ```js
+   Post.find().populate("author").populate("category");
+   ```
+4. Display:
+
+   * Post title
+   * Author name
+   * Category name
+
+
+
