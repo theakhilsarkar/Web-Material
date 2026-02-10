@@ -2,6 +2,7 @@
 ### 🦠 Project: COVID-19 State-wise Tracker using API
 
 
+
 ## 📌 Project Overview:
 
 Students will create a **COVID-19 State-wise Tracker** using:
@@ -70,3 +71,4 @@ js-final-covid-tracker/
 - Ensure the table is responsive or scrollable  
 - Your video should clearly show working output  
 - Keep the design clean and readable  
+
