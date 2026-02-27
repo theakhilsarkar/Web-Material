@@ -1,7 +1,4 @@
-Sure Boss 😎
-Here is **student-friendly, perfect documentation** on **Brute Force Algorithm / Approach** that you can directly share in class or notes.
 
----
 
 # 📘 Brute Force Algorithm / Approach
 
