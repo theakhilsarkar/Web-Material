@@ -1,315 +1,310 @@
-# 🌳 Binary Tree – Full Documentation
+# 🌳 Binary Tree
 
 ## 📌 Visual Overview
 
-![Image](https://images.openai.com/static-rsc-4/2XML_yLrKFTtPyrH_yw5Nr1b412IKiSo7hEhasVJKyhSr1sxJuZtcrMeiD7a-ne_D2Qho3jUm39D4xCTBD6Bn9g1dNB9ErejAy-Wy9cDMzqBGzmujJGHlo41pZCvFHHBLiH1nd_Db3nS5bED2eHvf7JE3HkLlS59bHzY-2lqi_VKhT1FPyf33llS92-Qyte6?purpose=fullsize)
+![Image](https://images.openai.com/static-rsc-4/kVk7AiInW7z9vD5dkd-oA8pZzPuguHSqgvJknKRJ92fHFMMcKvaONyUjSiGP_zLANIrTwak9fStenNopt0x9bYMEByl44i5bALL_QrFETHu2d6WFdr5KUMrGL_ptfiPypVwud4xo2vxAfkdZr4-6yFp98-xt-6NCX-Nn4QeiBo4aWtzmnbNcf1GWmzxC4h--?purpose=fullsize)
 
-![Image](https://images.openai.com/static-rsc-4/3-vraGi0kaClCgXyQF5tWsV_D76NRpdRmQ5DTQpPwdib9GWbrOxW8oMxK1OV9QjfdPx8VyLp0tSb0M8nnJauj_U9qyzBsxbPDZBu_B0T_dNFrLbibzXcizFYJKfp1yWyWlfHwjH3y-lXIBRnq4CGBGj0qNPIstzLLBFkL0VtVtvFEvKICKJOXf8Hw0Wz_HK_?purpose=fullsize)
+![Image](https://images.openai.com/static-rsc-4/NlRCPTsDALUPGwnYXaDWrKjc7_qD88XF-VghjInrP-SdoUAh8UA1_7xGP4989yCxs6Xicy6vh0oyx4g_L-9lMGlDPH5VngFVmP5-_g2e7_DaM89vVne2GWGyJrRkf9HlnZLSMQOOWvrmSQ4aIsaduR0jORgJKQRIGsH3B2trBIisNwQ4r8SB0IyrsT_lDCxe?purpose=fullsize)
 
-![Image](https://images.openai.com/static-rsc-4/rTl3E6iQjZ-afF67_4AjURUVdHUNbvWiKwEoGkDF3-lPhWioGJTTefIiEDO--THzshcQBVHTKQLi6wYecSQiwxDVSUjDFBpNGMT5INuFwtPh102NjJ1I88Jk4ljLmODBgI0G4MAzF6gVhlzb-LwXGIHGpfbjkJBoaGGXC8XE083r6r3yVP9Bj3URtCg9EtGq?purpose=fullsize)
+![Image](https://images.openai.com/static-rsc-4/B4NnmU52PcJSrYEey0JV7REf1WtUtVwz92th7bK9TP6rn7Iat6G5nVCeKSe-stTwI2PnC5ymvWJSHn2K5T9q3dP1s0wXWAYy_pZfMG_TIseX1dQ4kdPr2vNMncQ36RObA4UKQ5q7VOswbEZcn2_XNJLvda_e-73bWUVH84HyLMD9rx3FcJSWNyJB0y5YXWqY?purpose=fullsize)
 
-![Image](https://images.openai.com/static-rsc-4/OXp4RCXmjRBnutlQr9Rm1kF9rQepK5T0qnIpUp_nyMZNDTIzBLF8XZRjdHOBfJLJL6le7RFEyZ4ecPfaG5ruN4ZTs0jG-5Nl-1N6cspdkm5-GfGDsimOpu85aNhR6AkDG_mqX_DoxuTp8-VyNBTf1YcCwGBpGnzFaa0jcoqqcXS0RO4D44XubPRPif0d2MYb?purpose=fullsize)
+![Image](https://images.openai.com/static-rsc-4/HY64udxS0cMF5fOIy8tIGpNkTKHAQkc4KxgmJFdQ8STNqGGIkcp3b1O7aJ_9ay_Fvihe4MmPUrAdnQFfxP6EldPnJ6NH7vn0wH6G9NybdJ3fdo57cgzsCUv07kXvsif5qWh82X7pmYBlGQi4gjHOgrjBrqixJ4h9ftMIZGOcOQ5fMXsdYJ4ZJHooHiaTh9QB?purpose=fullsize)
 
-![Image](https://images.openai.com/static-rsc-4/mO0bvq8nsb_-c1OL0zUOWRDlmIeX_kEGIkMORFHZEefS1_skVePhU6O7yDEA-uI-rUarvfL05Pasi1KrWGO1S50EF0UghiiCCGssQLt17MLeTgTApDg2eVyQHP58YHL6d-Utq8zVcML69J_eYaaejq0DY5mmn7kKUUmd2Yc5rKFL5xpfOdLnO1XjhnDdNsaS?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/rnF7pt_EAuMxJYP4x8yZ_OpD3gPAb9T-zAYJy3MPkFZBtW1bTdpCFeNmAjsQ00_77ZevGYYQY0l-yyB2K2bFJhXOcWjE9i3-Ysulw_3vh2wo6BgCEgPu25VmcehK-z1oMf8ONM7LivDPK8-21llQCzlZzr7y9ciEyJhGI4__UERhaXO-He0pYGhV5XzOuyiD?purpose=fullsize)
+![Image](https://images.openai.com/static-rsc-4/oF3605p2Nq24p87EJtrC96ybJoC5hE2N0054eZjL3ujQHauU1ok9BNiWPS4_xEmNWuEqwYOfIsexotJQ92_FBqfpBaqbtcbuggCovneXs_hHFIdxbygoI0ggTOTkBwUUU3msm23uqFDwMCc7VuTodmwSyWmLiur-Kol_uV2hOxW4STmYydBb1WcOJHlJmQiL?purpose=fullsize)
 
 ---
 
 # 🔹 1. Definition
 
-A **Binary Tree** is a **non-linear hierarchical data structure** in which:
+A **Binary Tree** is a **non-linear data structure** where:
 
 * Each node has **at most two children**
 
   * Left child
   * Right child
 
-👉 It is widely used to represent **hierarchical relationships**.
+👉 Used to represent **hierarchical data**
 
 ---
 
 # 🔹 2. Real-Life Examples 🌍
 
-Understanding becomes easy when you connect it with real world:
-
-## 🏢 1. Organization Structure
+## 🏢 Organization Structure
 
 ![Image](https://images.openai.com/static-rsc-4/HMliT5491v4cppcV-txVtPZGfAcT_ocA1oJv-z0rcyXAV0zA_Zxzd6TdIna_u8pEdRgsmTY0RURPCEOH87FMlyC_Hu_TprVWiYL8OlO9mRve4X8P3onRLAXIDA3bHVxnFMBblhnZbT4AQH2pqu1ZcnAd3y8rnEOtKxXIV_R2gsaR5ZdZxH3q39Aabzp1ld_Z?purpose=fullsize)
 
-![Image](https://images.openai.com/static-rsc-4/8fxicLVFGQbSJ-2Y1CmudjTf2OFlssZRJbp56E5ryh2ph40Ozp6zrcsh-HPFTK-_fpP15PR2EhLYxMh2Y4ulqiGIdCQ1JXuhApgw-30GhZ2-fHc6CsoU742WvWxHdfA95izR6Hsiuia9TX7NYo4I7uPelBnwsR09mbmv1ynAZRJfYuIYhS_ekd8qu_d31iOJ?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/ozDS_jnXdyHGRu3nOgVG9MroSw-q0pNl8Zi3yyQrShcxS1I5XbbUBEwLER5nGxf-yIQ_IJWcuHsb_P04xSjS3zYjmLW88H3mPzavUvljMSsjemFlnXYM3oFm6l2BE_R7b_V7PR8zC5QQ0Xg0MtnyRthzBWIsbC9zLrnBsPN8ell1RKO7p2FX-iqo1q0j2gIn?purpose=fullsize)
+![Image](https://images.openai.com/static-rsc-4/OXp4RCXmjRBnutlQr9Rm1kF9rQepK5T0qnIpUp_nyMZNDTIzBLF8XZRjdHOBfJLJL6le7RFEyZ4ecPfaG5ruN4ZTs0jG-5Nl-1N6cspdkm5-GfGDsimOpu85aNhR6AkDG_mqX_DoxuTp8-VyNBTf1YcCwGBpGnzFaa0jcoqqcXS0RO4D44XubPRPif0d2MYb?purpose=fullsize)
 
 ![Image](https://images.openai.com/static-rsc-4/GJguxeciC1fW-MShh312xgmSB_gelu_tMLYmJfB-TEdYuDm76KJmlF6UQPF6KGOAYXkgq5O-2NcZCPozoZWTM0EFLwaTanQHW06diPKTJP4SZf0pCFn3MP_giY_WQfgIFW7mUiw3LAscbdTq8xGfL-s432S8eAd1B6v3r9eULupASrdmJDkB7VG3uMJubjLR?purpose=fullsize)
 
-![Image](https://images.openai.com/static-rsc-4/V31o4TSICoGAt0I5_c9yxFqPBXk9yKHmMKH3JI2fUA9cv_V8jITXQMJ5LfU1-nFiXquJK9Y-jqzGEdN-ORnRLuElmPYnQaCXKTj_RHMK3tJwoPrH0ZEhRir04hA57kxI6nvdIqi-BPw-gzx8pjVKC_0zIAhcQZ0aJDAQGx_ou7cZeiUAKuTAzW1h4LM-Snk8?purpose=fullsize)
+![Image](https://images.openai.com/static-rsc-4/tRLfZpUNAyv7jDdum5rK6axmiLAEpRFFvmxC87uaBdm2CFHx8shatDxhojJVzJt8gTG2qDdmC3pfQ5m4frBzQgEXVMDO9CY2o5AUWjoyTjooGsWdJiNOt-gE6Qu7Rv3K3yrqD90bXZwiKSg4Y47PMB7aLSzZS1nzyTVXm2hAwXCtdZ3Wa6FEs5j3raGZ2i0C?purpose=fullsize)
 
-![Image](https://images.openai.com/static-rsc-4/x_3eawkcwWxdPZBpOrRwJ-HI3ZUDkTqz1gW7_Lx7DNhU0DNNTzt_Is0Di0oeoHpm7mSPP68LRVCqlwOEPCeWdKZpWImZCIo_F0v8VI7zymFRA3rR5qrNsf2z5L1uUmPY6C8fI853k65hQiHbHMRPduB0JMHAYGIn72ZODlGVlEQI3rjvzD3oY5HAATbCZz20?purpose=fullsize)
+![Image](https://images.openai.com/static-rsc-4/Od48x7lMFcbyOIgOBQbdGN0BaZcak92jx-KSDHMl_20otaoRNr-RROaaCPs_yRQivUYI0KuJiwqbEepGom5I48V22t3JPDXPCP_p3llRUqb7n33wOlxdf3ayCKd3Jk1eLnhSaZy2Evb2ezS08YoVjR5Vsqy4Go8F1uDLzjO0KuRvzQQHuDz7H_s_OCfRjEbp?purpose=fullsize)
 
-* CEO → Managers → Employees
-  👉 Each person reports to one parent → like a tree
+![Image](https://images.openai.com/static-rsc-4/qH_aqG8uQG251smb6MmVk2kB13PNaf3MM15RBGSTCxvi-4__2j835VmXmwdOrRVxI-tLsLa7uzxdwa20JY6qlujSstF32_p07lEteI69g7ZBHjTGcIHC8pCf9bMXeCc_jm-zomXr7f3QhPSBbXm_s6SajWvHFmsfpHhD3hzbc0PSTkgswz2-kdEdTu4fwsuU?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/6g590SYlnJ5ESfHK3E6JywYdn3TWHdyQUfA6Z6rirJHLEQk-_fpezQ2Vz7JNS-odn9lHQSqQ3ESOcoGO6Wk57lueEtTsUwXAUzb4l3ewYTJhNTvgeaniDSVSQ7XEKvIQesYQRqz2tx4WluxC5kIDv9eQIfNSXukML1GeGMLCAImwsHWS-g7BKgvo_Sr-ZApV?purpose=fullsize)
+
+* CEO → Manager → Employees
 
 ---
 
-## 📂 2. File System
+## 📂 File System
 
-![Image](https://images.openai.com/static-rsc-4/olA1a32KNuA0b240pNsILVEAj4bOPVPnfew4i8dq1-Rf9QHA-3S_A6Kt6D8CW6V6yTBWuV9GDWZT_3f_3kbhr7kMhpK3AnprNAjgD4fFmgkJAP5hA_-Xon3_y9v6E6rmuqsEeaq3FcJtkd2-3zwq2NrGJwPrdjNlR9fS_Velk9gYWgygb8f78a_wTuSdFsX5?purpose=fullsize)
+![Image](https://images.openai.com/static-rsc-4/Hbz_dLQ5C5QDqBHnIkO5d6xqEC99hhaQJCtzO6fpka3RDkEOi_UoZKMwwcuQgPZoI5Ov2K_p4fj279ogKbbbKBGUuMksen_fF2SvOo8EceNW52OiHa6YEax1aASpOGVk7XHEhm9yz4wVEBSiyzzywLNoh-DmANc4ePp0_6rfKYOzB5LAYdUp0Xx9zNWdOeMH?purpose=fullsize)
 
-![Image](https://images.openai.com/static-rsc-4/MoVhgx754yXswYJP5laTJNhWdPZ14K5PAm1pEH0Pbdl3WdktdFViasuSY_-2c9wq8bXFVHADx82M0XoHbDkL9-z5vIsmwk4l34fKwXyYYfJ7gDksk-BiJo9xOymvzsf0sQ53C6VwGSteCAaSz1bsBCYTu6amI4QiQn3zz2Y9c4tlWNP-Njez-HAMLXetDXgC?purpose=fullsize)
+![Image](https://images.openai.com/static-rsc-4/Q-H-m3Afa1WBq-_HxC9kXtoYgUtogIeFngRoP6LASrqBH-StRFsCFiQgboOhgpI5bDc-jVWdhPbJXNx6YnOMGPvwiXNTKdhRqCwNs1jS5NfGehuSnQMCaxEQRIV0_Ae_AwAG5HAV_FW35Tih3jJFdWMKoQ8Qzky7aplStTtRWKvnwwvK_QP0lPxVQ98aNC9g?purpose=fullsize)
 
-![Image](https://images.openai.com/static-rsc-4/JIUHTuHU5CuJGr_jNF8kLfPATC11FPjf1XSTlwvByxVeyb5KjFILf9fzqsCOZLZ5dY0DNm_XnumqOIvQCDuwxFx9X_WshKGMkZPeef807i1xUXSE61bwbJfvcaM6XBkg0ogzEmlhYUBJqNG0LMEMhGnnHKO2iO5ATe85eP54nBZRmtRNbCt_sAv6LwqH665g?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/N1xp2cLRxIRI4X6kpHkaAMKW_oJnJ8Ah1kVSon3cPyVKswlqeXV0VlukCW0IdFCrpKF46WqbNSSKRwZOt3VEtE-7VKW6CRA4eCWmEaqUEFBb3nvpCoPTCwRJ25T-BQwCHWfKwyE5qaAf4OQogGBXcFdqIqS3rxNNMNBQ9U4pCkutcB0AD2EIQUa0YQ4Ikt53?purpose=fullsize)
+![Image](https://images.openai.com/static-rsc-4/n63QPI6Is39J38_RU2NvgONuevzBNyIIzhgCEwB-T-i1sZPPyS8NMAzgODLdK3-WAqF3KTnF--YZd5opK78Vdv7HXGelA7-lJgcT2h-iC-oyCjv7n77csM0nxtKvBqONFqgoxRsb6DZQ9Zi8rPdHvVyO5eZDPUQMsct0AtMxobGsfbCAkceb7WrSzU1pd09x?purpose=fullsize)
 
 ![Image](https://images.openai.com/static-rsc-4/xnwspre9m2mxLbF_8PoW2-CT6Y4hPf8kBM8ylgp-WM9l5DGoGOhR8jXibBOcubmhwDM4Kps0Id1n42rftqqp3CGdBXoNWNRseylkj03DaoFAmg9QEvQpXgzvD_IBo8gUeB8uBThaHlI_r6pKXUKgcZz8AxLw_BHD8-pxSCTn2DLb7Eg5MJrvg24s1r6c-j58?purpose=fullsize)
 
-![Image](https://images.openai.com/static-rsc-4/YHjRk_3k_WWm95g3mKVBLGkz1v9hkfVH2cZltGPrhNwvT9fN4WEOhsc0XA-SVZBSPpR8sFt28cJA3kC717Buj_lXH2_MR6289h_VnrP0wvGBHeHZoszmUk8jiQ_E22H7u11YINBPucn4OahDi6ofwExAQrWfj4OBs51mfpISmyhcy99IE47p5X2LsW4v4AGu?purpose=fullsize)
+![Image](https://images.openai.com/static-rsc-4/MoVhgx754yXswYJP5laTJNhWdPZ14K5PAm1pEH0Pbdl3WdktdFViasuSY_-2c9wq8bXFVHADx82M0XoHbDkL9-z5vIsmwk4l34fKwXyYYfJ7gDksk-BiJo9xOymvzsf0sQ53C6VwGSteCAaSz1bsBCYTu6amI4QiQn3zz2Y9c4tlWNP-Njez-HAMLXetDXgC?purpose=fullsize)
 
-![Image](https://images.openai.com/static-rsc-4/r79wsSE66DR5Qi7qEXPyMNfKsZFkkMxtVFDoKFnS6xWrtmiOdnX4U-HBBI5AlhotGGAjK_xgbf02s3MRvGCtgGBpno4x7XpG2nrPXVwh1HE3si7KHRMs82D4S1vzP77j1TIurLAoOUbgMkp0RIQvfOEZu47NcS5Xg5RWX-SsrYPRFs8dfS0zCT7rGjKpyuea?purpose=fullsize)
+![Image](https://images.openai.com/static-rsc-4/EYrODOa6yvlKp7YnxWSpH_uSqu69wlvC75K_TY3pVHpM0zl5IEHx3QIsjuYVZNWcg8eC-JY51Q3fd2nuXitmzLT0BxJRBQJIPqaAJu4qKX58zYYykcqiqVFVj98SnBjTdXK881-loPlthp0JXazU59waujHPJDjZjglZaMinWii9izc1wiQHvyPDnmtVwuUE?purpose=fullsize)
 
-* Root folder → Subfolders → Files
-  👉 Exactly same as tree nodes
+![Image](https://images.openai.com/static-rsc-4/Sv7EDxPWGyVp6btfL3Jfhf_5gnJAiSfUT4tfi3AbZu2OFTuqw89LkOjS80BsNsDZq-ZObJ_QkkoAK7rhyXnmXLGCx7hoTJGfyjKPjAYTgcdRm0QuQaXP28UGQP7U9gHZtV83RSrtK4GdQU75-n4t5sxqK8_I-9MXElEiXTDf7ZPBYdWZLbuTVIN-ErJ0WRUD?purpose=fullsize)
+
+* Root → Folder → Subfolder
 
 ---
 
-## 🎮 3. Decision Trees (Games / AI)
+## 🎮 Decision Tree
 
 ![Image](https://images.openai.com/static-rsc-4/T3i9aiqE2cxrGx9HkQCw7tEbc6QlHDSrTLZEHtI2xrcy0Nz_BQJMjdZW3_-kp3xBpw3O4ZMpqZQYs_WTbZnNGD7FPK-zAs-NxUD9z0NBChAdKws5cRVeu5iJSflOG6iqaX4bzjzB9BMkKsAVYilrFWm6HD0BcZUdVqv76zMd48poktO9OlOpW-24DK8u9abs?purpose=fullsize)
 
-![Image](https://images.openai.com/static-rsc-4/JZRzs0JJhCWskm4xIeJe7XelLNpyD5rF2FpcHG6pJoUFokhRd_lf2REfJrEY_VT8z95_M8fTREZlDg8JxtRHZCBgL36qF4fYIf0ddbUTM5eFG7qfFqoq3haBjxfasZ4fk_KPkkMSRP4muHir54oSNT83MSTTDTFgOiYW6XNntXuNuOVcIcvWZamGSiP9HRfQ?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/ajcx1wPT99MXDo-ivqnW3zCvGzpjuDJ6OWzsCZLkSvVVCLmStqLBDvaDZMIh_CHCtYmcFTUV5MH1SdQKz8GBNRYpvezmd2ptv5XmKfz5hrnlY3H9tNqo58TivpZo7pvKnFH5OK0qbFQNZ1UxvNxvHXMkVxfUVGXbf7BwsfHfvjBkq9NB96hIHL-XCU0uPCXU?purpose=fullsize)
-
 ![Image](https://images.openai.com/static-rsc-4/KOLye547zcbsNZ1x9sG3EE2Lt5FaR-0gZTHJT9Jh3ep_3spHJqTA7c0VoMaVgQftGx9tWT-3hVz0nuTt7qssdPDSyV76zQ0LqzUSNLdrHfc3iJnfN-kZcSo_Lx1LJmA5YPHjGBoI25cMHjKAqNswlgIfGVYKumNtuRvSi4H6vES0ohkZ6T0GHm20FKtmjlNO?purpose=fullsize)
 
-![Image](https://images.openai.com/static-rsc-4/bnrQRU4ILfEUOox-gK_GgO3FxK_JprA9aRN9DAn_E8L49GkBqFUtOg8jtXkHb-gauGUdLihWPowbOofwiCspPNmREV8kUkpalYIAdq4DgFgHO0-YS6-ogAd_LsEqQSB7wMOCxF6m_QQCOKjh-rbrfFuZ8WmtY0-ohl0Tqazc0Tlqr8xbxP04A7y2vU8W5b3h?purpose=fullsize)
+![Image](https://images.openai.com/static-rsc-4/KNIcTrpIfnZc2SnGVw_4mQUa83uKFqgUzyc8E7oJymegxW2CSWPQN7CIWoWW8JogJwekP29sW_4ruCJhzc4FqeChvtK-886ZalThP-kQ9iuB2qctgHMMLJIQb4aSase56bnx2iGwkq_aOnkp58_GFSxwUrv03m8_Rq3d7KNtmMkUco-cRmYoOayEHOOrsUO1?purpose=fullsize)
 
-* Every decision leads to another branch
-  👉 Used in AI & ML
+![Image](https://images.openai.com/static-rsc-4/klC4_Qi8uTy3C58UlpPi5bGhqnnExCRL1ZUNuHpsMvveneYs4Ah351sU8936eVB6UECM8ylEivGT4VSJmoqQenlWPMYEa0WqFiHJOvrz-qGTl-D0buwxb9OModZMSRZguzMoXgMUex-VosKWpEW6DZZkI8aj0X9F-aRkSATjFxNN8LOQBaEO6cIJeypabhHo?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/siCuXmrM2ZozT02xtb5rtaNEnoKz1P_wHgNHiWGFRpCYcTcsQNM0K-FaSjOSOZ1fQ1MBTjXwkQ7tluBI8du3Ty_Fe48gi4YoF9AtI4glXQShG3dqLAe87ZSgsZJrHsisS4sbbwblmvgg9K9-3aKz_A2HFSR44OP25lIGxR0yuQ5L8f2a52165SsGi7Q_w-vx?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/GIqlIgxGC63aWvxaLXaj8hok5tOoQ7eMeX4xCI6jR7_JI_oCGyILBziDe35l0eu4c_IDXnpT72yhKF5Or5GLCKemk30L4eCgTR0ddVowjRFreayZka0N5xolW-fW77NVgljQFH_1VnCkWBNXJ-R1k-pEZTemGszHSN1aOcvat15369wVULtLmfQgmhWFuD56?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/ZePjgAX3g5IRSVUrY7IW0BATouG5JOdmq0UkXacCjCF7D1hCFgC2N_OHR0PIdy3eeJ5zQHTW_GEkuTtSjtd6VbMcL-AarWbumU4eu8hKMasmpGKhq8qa8jNKxRb0Yr-C2MwyncbJqMn7aF7cf7Np3JGSjcCRa9HNjZHnM9Iq4fLMJ-r3oeGihuY9l6PtRalq?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/vuL4ffBN-OHTaVdyRc6MeYKuWgIO0GaHWKLErCPsx5QG9J6HnynVqnHbgCAwO6IkPNkGASc1r5svh5B_aU3RpWGomlyYFH9nRoDxYaAto8_rmzw9qh99upWU6acPGgwQT4_MRWc-BCCfUVAI7ql2U0A5CpDEK2xekx7o7eKWox23FguBA3Y_zJvXIrEeNYso?purpose=fullsize)
+
+* Choices → Outcomes
 
 ---
 
-# 🔹 3. Structure of Binary Tree
+# 🔹 3. Structure (JavaScript)
 
-### 💻 Node Representation (C++)
+## ✅ Node Class
 
-```cpp
-struct Node {
-    int data;
-    Node* left;
-    Node* right;
-
-    Node(int value) {
-        data = value;
-        left = right = NULL;
+```js
+class Node {
+    constructor(value) {
+        this.data = value;
+        this.left = null;
+        this.right = null;
     }
-};
+}
 ```
 
 ---
 
-# 🔹 4. Types of Binary Trees
+# 🔹 4. Binary Search Tree (BST)
 
-| Type     | Description           |
-| -------- | --------------------- |
-| Full     | 0 or 2 children       |
-| Complete | Filled left to right  |
-| Perfect  | All levels full       |
-| Balanced | Height difference ≤ 1 |
-| Skewed   | All nodes one side    |
-
----
-
-# 🔹 5. Binary Search Tree (BST)
-
-👉 Special Binary Tree
-
-Rule:
+👉 Rule:
 
 * Left < Root
 * Right > Root
 
-Example:
+---
 
-```
-      15
-     /  \
-   10    20
-```
+# 🔹 5. Practical Implementation (JavaScript)
 
 ---
 
-# 🔹 6. Tree Traversals (Core Concept)
+## ✅ 1. Create BST + Insert
 
-![Image](https://images.openai.com/static-rsc-4/fQV8ZKacvmXuWKCMd4MuXYFVg7_b3wJ5K6DU4_UVd43jOJGc6o0acAUQ9XA-8Ha457DmLEmAJBoWZpXpSI9sPE8azYsRLbSuifcsBpGKQGSgiKfq23MJ21MmVq0x83pGmjsC5KTUqL3ybwaSYCwD7OULQu2QXoTLPjoAPgUTHE7-C3DRgdNUNoeHzhd1MFYC?purpose=fullsize)
+```js
+class BST {
+    constructor() {
+        this.root = null;
+    }
 
-![Image](https://images.openai.com/static-rsc-4/E7znpcYt5TPdS-BrYWfPRY03Ff1m1DWgbX9xjMpSm1zBbWI83bcZg00BGg8g6tkO4OkjM_3QZgkAdzeJfXwaR9X99GMDtDz9JQlJ2tg_tDz9tXAmdfjNrOaO2CZu7j67t0vgLVMPnAHRc6cq_roMcdmr4nNB9T4dQ12lBQtdAsYsvRy-pmcORsZsBMXXGVSU?purpose=fullsize)
+    insert(value) {
+        const newNode = new Node(value);
 
-![Image](https://images.openai.com/static-rsc-4/iMWjcpsQ2nshue3UgnXJhQR9zIiqpA6VHGNDzafQ6mV5EUzqs8r2bEVr_yMi6UOkOyfGFw1OPDi2piIPy4u156HpvdAyk12CC2jDO5UPC6kuBzzuVjRwHYW9BJ9G4n84mdCiVQ18Kb4oGn6TWLRJ2ObMXrx-c-uXxGj78B6NYtrTtrVla_NQFN4uzgRQ3Yhe?purpose=fullsize)
+        if (this.root === null) {
+            this.root = newNode;
+            return;
+        }
 
-![Image](https://images.openai.com/static-rsc-4/HP3bQYHfRapDpBdjvtClM1N40EDqrXyepb_dUVly8qLnsxmiav-SsKB2ztd8F2hFFl6Dm6ekd9gmfY3LJIkHBAQDfCGFTh0VvS02DXhyld3WmxpQamCopVfmkzv8y308MGny0emdHoiFwgpibJt_F0ITQjylkdGzHWxdHMfbwfaGESKNUqDYdxkOiMRs7-wW?purpose=fullsize)
+        let current = this.root;
 
-![Image](https://images.openai.com/static-rsc-4/MnTcFAIjbW2iFLXFFCxTJXH9I73ohS06dF7pdTY9xoBtJ6NG1Lr-8yg-qk3yBpKeZ0wDVA4ijny8Rf2b861BgrybyZSCzL4mGo9FRJi-RRsjvsPgew76M-6T5g-KlMhHApB8Fxf5vLXUgvDYmiHvUGx68rZXymAYLQdXaR364bicN7fIwZV8yizrOuUkVDSK?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/P6r946mCWkTs_Cuj5zg-qIqqc3jYYyBRRT47_K_g3SJtQfF63fg505p6ym4Jn-0u2k5bKoXkWPcF-cdkAX0wcmp6HoaWIlt8XA67IfthwH6i0lYB4RphSxNrWu0dvqQtQAM1TDp9m0EcuwPj08kU1DkRNR1ZwgKU2SDOO40MLpabfbJ31BoR9H7xnM21_vIR?purpose=fullsize)
-
----
-
-### 1️⃣ Inorder (LNR)
-
-Left → Root → Right
-👉 Sorted output (BST)
-
-### 2️⃣ Preorder (NLR)
-
-Root → Left → Right
-
-### 3️⃣ Postorder (LRN)
-
-Left → Right → Root
-
-### 4️⃣ Level Order (BFS)
-
-Level by level (uses Queue)
-
----
-
-# 🔹 7. Practical Implementation (Programs)
-
----
-
-## ✅ 1. Insertion in BST (C++)
-
-```cpp
-Node* insert(Node* root, int value) {
-    if (root == NULL)
-        return new Node(value);
-
-    if (value < root->data)
-        root->left = insert(root->left, value);
-    else
-        root->right = insert(root->right, value);
-
-    return root;
-}
-```
-
----
-
-## ✅ 2. Searching in BST
-
-```cpp
-bool search(Node* root, int key) {
-    if (root == NULL) return false;
-
-    if (root->data == key) return true;
-
-    if (key < root->data)
-        return search(root->left, key);
-    else
-        return search(root->right, key);
-}
-```
-
----
-
-## ✅ 3. Inorder Traversal
-
-```cpp
-void inorder(Node* root) {
-    if (root == NULL) return;
-
-    inorder(root->left);
-    cout << root->data << " ";
-    inorder(root->right);
-}
-```
-
----
-
-## ✅ 4. Level Order (Queue)
-
-```cpp
-void levelOrder(Node* root) {
-    if (!root) return;
-
-    queue<Node*> q;
-    q.push(root);
-
-    while (!q.empty()) {
-        Node* curr = q.front();
-        q.pop();
-
-        cout << curr->data << " ";
-
-        if (curr->left) q.push(curr->left);
-        if (curr->right) q.push(curr->right);
+        while (true) {
+            if (value < current.data) {
+                if (!current.left) {
+                    current.left = newNode;
+                    return;
+                }
+                current = current.left;
+            } else {
+                if (!current.right) {
+                    current.right = newNode;
+                    return;
+                }
+                current = current.right;
+            }
+        }
     }
 }
 ```
 
 ---
 
-# 🔹 8. Practical Use Cases
+## ✅ 2. Search in BST
 
-* Database indexing (B-Tree, BST)
-* Autocomplete systems
-* Expression evaluation
-* Routing algorithms
-* Game decision making
+```js
+search(value) {
+    let current = this.root;
 
----
+    while (current) {
+        if (value === current.data) return true;
 
-# 🔥 9. MNC-Level Questions + Solutions
+        if (value < current.data)
+            current = current.left;
+        else
+            current = current.right;
+    }
 
----
-
-## ⭐ Q1: Height of Binary Tree
-
-### Problem:
-
-Find height (max depth)
-
-### Solution:
-
-```cpp
-int height(Node* root) {
-    if (root == NULL) return 0;
-
-    return 1 + max(height(root->left), height(root->right));
+    return false;
 }
 ```
 
 ---
 
-## ⭐ Q2: Check if Tree is BST
+## ✅ 3. Traversals
 
-```cpp
-bool isBST(Node* root, int min, int max) {
-    if (!root) return true;
+## 🔁 Inorder (LNR)
 
-    if (root->data <= min || root->data >= max)
+```js
+inorder(node) {
+    if (node !== null) {
+        this.inorder(node.left);
+        console.log(node.data);
+        this.inorder(node.right);
+    }
+}
+```
+
+---
+
+## 🔁 Preorder (NLR)
+
+```js
+preorder(node) {
+    if (node !== null) {
+        console.log(node.data);
+        this.preorder(node.left);
+        this.preorder(node.right);
+    }
+}
+```
+
+---
+
+## 🔁 Postorder (LRN)
+
+```js
+postorder(node) {
+    if (node !== null) {
+        this.postorder(node.left);
+        this.postorder(node.right);
+        console.log(node.data);
+    }
+}
+```
+
+---
+
+## 🔁 Level Order (BFS)
+
+```js
+levelOrder() {
+    let queue = [];
+    queue.push(this.root);
+
+    while (queue.length > 0) {
+        let node = queue.shift();
+        console.log(node.data);
+
+        if (node.left) queue.push(node.left);
+        if (node.right) queue.push(node.right);
+    }
+}
+```
+
+---
+
+# 🔹 6. Practical Example (Run This)
+
+```js
+const tree = new BST();
+
+tree.insert(10);
+tree.insert(5);
+tree.insert(20);
+tree.insert(3);
+tree.insert(7);
+
+console.log("Search 7:", tree.search(7));
+
+console.log("Inorder:");
+tree.inorder(tree.root);
+```
+
+---
+
+# 🔹 7. MNC-Level Questions + JS Solutions
+
+---
+
+## ⭐ Q1: Height of Tree
+
+```js
+function height(node) {
+    if (!node) return 0;
+
+    return 1 + Math.max(height(node.left), height(node.right));
+}
+```
+
+---
+
+## ⭐ Q2: Check BST
+
+```js
+function isBST(node, min = -Infinity, max = Infinity) {
+    if (!node) return true;
+
+    if (node.data <= min || node.data >= max)
         return false;
 
-    return isBST(root->left, min, root->data) &&
-           isBST(root->right, root->data, max);
+    return isBST(node.left, min, node.data) &&
+           isBST(node.right, node.data, max);
 }
 ```
 
 ---
 
-## ⭐ Q3: Lowest Common Ancestor (LCA)
+## ⭐ Q3: Lowest Common Ancestor
 
-```cpp
-Node* LCA(Node* root, int n1, int n2) {
-    if (!root) return NULL;
+```js
+function LCA(root, n1, n2) {
+    if (!root) return null;
 
-    if (root->data > n1 && root->data > n2)
-        return LCA(root->left, n1, n2);
+    if (root.data > n1 && root.data > n2)
+        return LCA(root.left, n1, n2);
 
-    if (root->data < n1 && root->data < n2)
-        return LCA(root->right, n1, n2);
+    if (root.data < n1 && root.data < n2)
+        return LCA(root.right, n1, n2);
 
     return root;
 }
@@ -317,55 +312,35 @@ Node* LCA(Node* root, int n1, int n2) {
 
 ---
 
-## ⭐ Q4: Diameter of Tree
-
-```cpp
-int diameter(Node* root, int &height) {
-    if (!root) {
-        height = 0;
-        return 0;
-    }
-
-    int lh = 0, rh = 0;
-
-    int ld = diameter(root->left, lh);
-    int rd = diameter(root->right, rh);
-
-    height = 1 + max(lh, rh);
-
-    return max({lh + rh, ld, rd});
-}
-```
-
----
-
-# 🔹 10. Complexity
+# 🔹 8. Time Complexity
 
 | Operation | Time     |
 | --------- | -------- |
-| Search    | O(log n) |
 | Insert    | O(log n) |
+| Search    | O(log n) |
 | Delete    | O(log n) |
 
-Worst Case → O(n)
+Worst → O(n)
 
 ---
 
-# 🔹 11. Key Interview Tips
+# 🔹 9. Practical Use Cases
+
+* Search engines
+* Database indexing
+* AI decision making
+* File systems
+* Routing systems
+
+---
+
+# 🔥 10. Interview Tips
 
 👉 Focus on:
 
-* Recursion
+* Recursion mastery
 * Traversals
-* Tree properties
-* Edge cases (NULL, single node)
+* Edge cases
+* Dry run trees on paper
 
----
 
-# 💡 Final Summary
-
-Binary Tree is:
-
-✔ Foundation of Trees
-✔ Base for Graphs, Heaps, AVL
-✔ Asked in almost every tech interview
