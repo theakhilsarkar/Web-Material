@@ -1,3 +1,4 @@
+<img width="1024" height="1536" alt="ChatGPT Image Apr 23, 2026, 09_58_39 AM" src="https://github.com/user-attachments/assets/ca1a26e1-4dff-4d51-a984-04fe5d444203" />
 # 📘 Sorting Algorithms (DSA Documentation)
 
 ## 🔹 What is Sorting?
