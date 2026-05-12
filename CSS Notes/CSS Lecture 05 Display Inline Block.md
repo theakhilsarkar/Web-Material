@@ -300,3 +300,5 @@ Use with properties like:
 </html>
 
 ```
+
+<img width="1440" height="1111" alt="home" src="https://github.com/user-attachments/assets/b36e0b00-0bd4-4875-8ae7-bbd531040143" />
