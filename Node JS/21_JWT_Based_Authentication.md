@@ -1,4 +1,6 @@
-# 🔐 JWT Token Based Authentication – Practical Guide
+# 🔐 JWT Token Based Authentication – Practical Guide (With Frontend Integration)
+
+---
 
 ## 1️⃣ What is JWT?
 
@@ -136,65 +138,28 @@ export const authMiddleware = (req, res, next) => {
 };
 ```
 
-📌 This middleware:
-
-* Extracts token from header
-* Verifies token
-* Attaches user data to `req.user`
-
 ---
 
 ## 8️⃣ Authentication Routes (`routes/auth.routes.js`)
 
+### 🔹 OPTION 1: Token in Response (Basic)
+
 ```js
-import express from "express";
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
-import { User } from "../models/User.model.js";
-import { authMiddleware } from "../middleware/auth.middleware.js";
+res.json({ message: "Login success", token });
+```
 
-const router = express.Router();
+---
 
-/* SIGNUP */
-router.post("/signup", async (req, res) => {
-  const { email, password } = req.body;
+### 🔹 OPTION 2: Store Token in Cookie (Recommended for Web Apps)
 
-  const hashedPassword = await bcrypt.hash(password, 10);
-
-  const user = new User({ email, password: hashedPassword });
-  await user.save();
-
-  res.json({ message: "User registered" });
+```js
+res.cookie("token", token, {
+  httpOnly: true,
+  secure: false,      // true in production (HTTPS)
+  sameSite: "Lax"     // "None" if frontend & backend different domain
 });
 
-/* LOGIN */
-router.post("/login", async (req, res) => {
-  const { email, password } = req.body;
-
-  const user = await User.findOne({ email });
-  if (!user) return res.status(400).json({ message: "User not found" });
-
-  const isMatch = await bcrypt.compare(password, user.password);
-  if (!isMatch) return res.status(400).json({ message: "Wrong password" });
-
-  const token = jwt.sign(
-    { userId: user._id, email: user.email },
-    "SECRET_KEY",
-    { expiresIn: "1h" }
-  );
-
-  res.json({ message: "Login success", token });
-});
-
-/* PROTECTED ROUTE */
-router.get("/profile", authMiddleware, (req, res) => {
-  res.json({
-    message: "Protected data",
-    user: req.user
-  });
-});
-
-export default router;
+res.json({ message: "Login success" });
 ```
 
 ---
@@ -205,6 +170,7 @@ export default router;
 import express from "express";
 import { connectDB } from "./config/db.js";
 import authRoutes from "./routes/auth.routes.js";
+import cors from "cors";
 
 const app = express();
 const PORT = 3000;
@@ -212,6 +178,12 @@ const PORT = 3000;
 connectDB();
 
 app.use(express.json());
+
+app.use(cors({
+  origin: "http://localhost:3000",
+  credentials: true
+}));
+
 app.use("/api/auth", authRoutes);
 
 app.listen(PORT, () =>
@@ -221,7 +193,164 @@ app.listen(PORT, () =>
 
 ---
 
-## 🔄 Authentication Flow (Explain in Class)
+# 🌐 FRONTEND INTEGRATION (React)
+
+---
+
+## 🔟 How to Store JWT in Cookie (Automatically)
+
+👉 When backend sends cookie using `res.cookie()`, frontend does NOT manually store it.
+
+### Important:
+
+You must enable credentials in frontend request.
+
+---
+
+## 1️⃣1️⃣ Login API Call (React)
+
+### Using fetch
+
+```js
+fetch("http://localhost:3000/api/auth/login", {
+  method: "POST",
+  credentials: "include", // VERY IMPORTANT
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    email,
+    password
+  })
+});
+```
+
+---
+
+### Using axios
+
+```js
+import axios from "axios";
+
+axios.post(
+  "http://localhost:3000/api/auth/login",
+  { email, password },
+  { withCredentials: true } // VERY IMPORTANT
+);
+```
+
+---
+
+## 1️⃣2️⃣ How Cookie Works
+
+* Browser automatically stores cookie
+* You **cannot access httpOnly cookie using JS**
+* Cookie is automatically sent in every request
+
+---
+
+## 1️⃣3️⃣ Access Protected API (Frontend)
+
+```js
+fetch("http://localhost:3000/api/auth/profile", {
+  method: "GET",
+  credentials: "include"
+});
+```
+
+👉 No need to manually attach token
+
+---
+
+## 1️⃣4️⃣ Backend Middleware Update (for Cookies)
+
+If using cookies instead of headers:
+
+```js
+export const authMiddleware = (req, res, next) => {
+  const token = req.cookies.token;
+
+  if (!token) {
+    return res.status(401).json({ message: "Token missing" });
+  }
+
+  try {
+    const decoded = jwt.verify(token, "SECRET_KEY");
+    req.user = decoded;
+    next();
+  } catch (err) {
+    res.status(401).json({ message: "Invalid token" });
+  }
+};
+```
+
+---
+
+## 1️⃣5️⃣ Enable Cookie Parser
+
+```bash
+npm install cookie-parser
+```
+
+```js
+import cookieParser from "cookie-parser";
+app.use(cookieParser());
+```
+
+---
+
+# ⚠️ IMPORTANT CONFIGURATION (VERY COMMON ERRORS)
+
+---
+
+## 🔴 If Cookie Not Storing
+
+### Fix checklist:
+
+### 1. Frontend
+
+```
+credentials: "include"
+withCredentials: true
+```
+
+### 2. Backend CORS
+
+```
+credentials: true
+origin: frontend URL
+```
+
+### 3. Cookie Settings
+
+#### Local (HTTP)
+
+```
+secure: false
+sameSite: "Lax"
+```
+
+#### Production (HTTPS)
+
+```
+secure: true
+sameSite: "None"
+```
+
+---
+
+## 🔴 If Frontend & Backend Different Domain
+
+Must use:
+
+```
+sameSite: "None"
+secure: true
+```
+
+---
+
+## 🔄 Authentication Flow (Updated)
 
 ### Signup
 
@@ -232,69 +361,49 @@ app.listen(PORT, () =>
 
 1. User verified
 2. JWT created
-3. Token sent to client
+3. Cookie set in browser
 
 ### Protected API
 
-1. Token sent in request header
+1. Cookie automatically sent
 2. Token verified
 3. Access granted
 
 ---
 
-## 🧪 Postman Testing Guide
+## 🧪 Testing Guide
 
-### Signup
+### Using Postman
 
-```
-POST /api/auth/signup
-{
-  "email": "test@gmail.com",
-  "password": "123456"
-}
-```
+* Works without CORS issues
 
-### Login
+### Using Browser
 
-```
-POST /api/auth/login
-```
+* Requires:
 
-Response:
-
-```
-{
-  "token": "eyJhbGciOi..."
-}
-```
-
-### Protected API
-
-```
-GET /api/auth/profile
-Header:
-Authorization: Bearer <TOKEN>
-```
+  * credentials
+  * proper cookie setup
+  * correct CORS
 
 ---
 
-## 🆚 JWT vs Session (Explain Difference)
+## 🆚 Cookie vs LocalStorage
 
-| JWT              | Session          |
-| ---------------- | ---------------- |
-| Stateless        | Stateful         |
-| Scales well      | Server memory    |
-| Used in APIs     | Used in web apps |
-| Stored in client | Stored in server |
+| Cookie (httpOnly)     | LocalStorage           |
+| --------------------- | ---------------------- |
+| Secure (no JS access) | Accessible via JS      |
+| Prevents XSS          | Vulnerable to XSS      |
+| Auto sent in request  | Manual attach required |
 
 ---
 
-## ⚠️ Security Notes (Must Teach)
+## ⚠️ Security Notes
 
 * Never store passwords in plain text
 * Keep JWT secret in `.env`
 * Set token expiry
-* Avoid storing JWT in localStorage (XSS risk)
+* Prefer **httpOnly cookies** over localStorage
+* Use HTTPS in production
 
 ---
 
@@ -303,3 +412,16 @@ Authorization: Bearer <TOKEN>
 * REST APIs
 * Mobile apps
 * React / Angular frontend
+
+---
+
+## ✅ FINAL SUMMARY
+
+If using JWT with cookies:
+
+✔ Backend sets cookie
+✔ Frontend sends `credentials: include`
+✔ Cookie auto-sent in requests
+✔ Middleware verifies token
+
+---
